@@ -1,0 +1,38 @@
+{
+  "private": true,
+  "productName": "FTP Electron",
+  "name": "ftp-electron",
+  "version": "0.0.1",
+  "author": "Sourav Ahmed",
+  "main": "main/index.js",
+  "description": "Searches for ftp server.",
+  "scripts": {
+    "clean": "rimraf dist renderer/.next renderer/out",
+    "start": "electron .",
+    "build": "next build renderer",
+    "pack-app": "npm run build && electron-builder --dir",
+    "dist": "npm run build && electron-builder",
+    "build:win": "npm run build && electron-builder --win --config",
+    "build:mac": "npm run build && electron-builder --mac --config",
+    "build:linux": "npm run build && electron-builder --linux --config"
+  },
+  "build": {
+    "asar": true,
+    "files": [
+      "main",
+      "renderer/out"
+    ]
+  },
+  "devDependencies": {
+    "electron": "^24.3.1",
+    "electron-builder": "^24.4.0",
+    "next": "latest",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "dependencies": {
+    "electron-is-dev": "^1.1.0",
+    "electron-next": "^3.1.5",
+    "node-html-parser": "^6.1.5"
+  }
+}
