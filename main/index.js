@@ -1,17 +1,32 @@
 // Native
-const { join } = require('path')
+const path=require("path")
+const { join } = path
 const { format } = require('url')
+
 const parser = require("node-html-parser")
 const fs = require('fs');
-const filePath= './assets/data.json'
 // Packages
-const { BrowserWindow, app, ipcMain } = require('electron')
+const { BrowserWindow, app, ipcMain, protocol } = require('electron')
 const isDev = require('electron-is-dev')
 const prepareNext = require('electron-next')
 
+const filePath=join("assets","data.json")    
 // Prepare the renderer once the app is ready
 app.on('ready', async () => {
   await prepareNext('./renderer')
+  // const root = path.normalize(`${__dirname}/..`)
+
+	// // file:// interceptor to serve all assets without running a web server in the background
+	// protocol.interceptFileProtocol('file', (request, callback) => {
+	// 	let url = request.url.substr(7)    /* all urls start with 'file://' */
+	// 	if (!url.startsWith(root)) {
+	// 		if (url.startsWith('css/fonts') || url.startsWith('css/img')) {
+	// 			url = url.substr(4)
+	// 		}
+	// 		url = path.normalize(`${root}/${frontendAssetsPath}${url}`)
+	// 	}
+	// 	callback({path: url})
+	// })
 
   const mainWindow = new BrowserWindow({
     width: 1600,
@@ -61,9 +76,14 @@ ipcMain.on('message',async (event, message) => {
 
 ipcMain.on('saveData', (event, message) => {
   console.log("saveData")
+  if (!fs.existsSync('assets')) {
+    fs.mkdir("assets", (err) => {
+      if (err) console.log(err);
+  });
+  }
   fs.writeFile(filePath, JSON.stringify(message), (err) => {
     if(err){
-      event.sender.send("saveData", {  message: "error occured" })
+      event.sender.send("saveData", {  message:  JSON.stringify(err),path:filePath})
     }
     else 
     {
@@ -81,7 +101,7 @@ ipcMain.on('loadData', (event, message) => {
     if (err)
     {
       console.log(err);
-      event.sender.send("loadData", { message: "error occured" })
+      event.sender.send("loadData", { message:JSON.stringify(err),path:filePath })
     }
     else
     {

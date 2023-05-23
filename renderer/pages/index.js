@@ -11,11 +11,12 @@ const [notes, setNotes]= useState(null)
     
     const handleLoadData = (event, message) => {
       console.log(message)
-      setNotes(message.data.notes)
+      setNotes(message?.data?.notes)
     }
     const handleSaveData = (event, message) => {
       console.log(message)
-      setNotes(message.data.notes)
+
+      setNotes(message?.data?.notes)
 
     }
     
@@ -46,8 +47,8 @@ const [notes, setNotes]= useState(null)
       {message && <p>{message}</p>}
 
       <h1>{online ? 'Online' : 'Offline'}</h1>
-      {notes && notes.map(note =>
-      <h2>{note}</h2>
+      {notes && notes.map((note ,index)=>
+      <h2 key={index}>{note}</h2>
       )}
       <form onSubmit={handleSubmit}>
         <input
@@ -56,17 +57,19 @@ const [notes, setNotes]= useState(null)
           onChange={(e) => setInput(e.target.value)}
         />
       </form>
-  <Link href={'/about'} target='_blank'>
-        About
-  </Link>
       <button onClick={(e) => {
         const pre=notes?notes:[]
-        window.electron.saveData.send({
+      if(input) { window.electron.saveData.send({
           notes: [
             input, ...pre
           ]
         })
+        setInput("")}
 }}>Save</button>
+      <br />
+  <Link href={'/about'} target='_blank'>
+        About
+      </Link>
       <style jsx>{`
         h1 {
           color: red;
