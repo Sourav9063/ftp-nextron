@@ -17,7 +17,7 @@ export default function About() {
             window.open(
               "https://sourav9063.github.io/my_portfolio/",
               "_blank",
-              "fullscreen=true, width=1600, height=900"
+              " width=1600, height=900"
             );
           }}
           href="https://sourav9063.github.io/my_portfolio/"

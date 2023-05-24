@@ -19,15 +19,15 @@ const Home = () => {
     const handleMessage = (event, message) => setMessage(message);
 
     const handleLoadData = (event, message) => {
-      console.log(message);
+      // console.log(message);
       setNotes(message?.data?.notes);
     };
     const handleSaveData = (event, message) => {
-      console.log(message);
+      // console.log(message);
       setNotes(message?.data?.notes);
     };
     const handleLinkPath = (event, message) => {
-      console.log(message);
+      // console.log(message);
       setLinkPath(message);
     };
 
@@ -70,19 +70,26 @@ const Home = () => {
               <header>
                 <h1>All Media Links</h1>
               </header>
-              {mainData &&
-                mainData.media?.map((media, index) => (
-                  <LinkItem key={index + "All Links"} media={media}></LinkItem>
-                ))}
+              <div className="list">
+                {mainData &&
+                  mainData.media?.map((media, index) => (
+                    <LinkItem
+                      key={index + "All Links"}
+                      media={media}
+                    ></LinkItem>
+                  ))}
+              </div>
             </section>
-            <WorkingLinksList></WorkingLinksList>
+            <section>
+              <WorkingLinksList></WorkingLinksList>
+            </section>
             <section>
               <header>
                 <h1>Favourite</h1>
               </header>
               {mainData?.mediaFvrt != undefined &&
               mainData.mediaFvrt?.length > 0 ? (
-                <div ref={parent}>
+                <div className="list" ref={parent}>
                   {mainData &&
                     mainData.mediaFvrt?.map((media, index) => (
                       <LinkItem
@@ -96,18 +103,38 @@ const Home = () => {
               )}
             </section>
           </main>
+          <Link
+            onClick={(e) => {
+              e.preventDefault();
+              window.open(
+                "https://sourav9063.github.io/my_portfolio/",
+                "_blank",
+                "width=1600, height=900"
+              );
+            }}
+            href="https://sourav9063.github.io/my_portfolio/"
+            target="_blank"
+          >
+            Developed by Sourav Ahmed
+          </Link>
         </>
       )}
 
       <style jsx>{`
         main {
-          display: grid;
-          grid-template-columns: 1fr 1fr 1fr;
-          height: 100vh;
+          display: flex;
+          justify-content: space-evenly;
+          height: fit-content;
+          min-height: 100vh;
+          max-width: 100vw;
         }
         main > * {
-          border-left: 1px solid var(--border-color);
+          max-width: 32vw;
+          min-width: 20vw;
           padding: 0.5rem;
+        }
+        section:nth-child(2) {
+          border-inline: 1px solid var(--border-color);
         }
       `}</style>
     </>

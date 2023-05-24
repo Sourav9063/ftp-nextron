@@ -15,11 +15,7 @@ export default function LinkItem({ type, media }) {
         href={media}
         onClick={(e) => {
           e.preventDefault();
-          window.open(
-            media,
-            "_blank",
-            "fullscreen=true, width=1600, height=900"
-          );
+          window.open(media, "_blank", " width=1600, height=900");
         }}
         target="_blank"
         className="cta"
@@ -100,18 +96,61 @@ export default function LinkItem({ type, media }) {
             </g>
           </svg>
         </div>
+        <div
+          className={`third openExternal`}
+          onClick={(e) => {
+            e.stopPropagation();
+            window.electron.openExternal(media);
+            // setIsAlreadyFvrt(!isAlreadyFvrt);
+          }}
+        >
+          <svg
+            viewBox="0 0 24 24"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              <title>ic_fluent_open_in_browser_24_regular</title>{" "}
+              <desc>Created with Sketch.</desc>{" "}
+              <g
+                id="🔍-Product-Icons"
+                stroke="none"
+                stroke-width="1"
+                fill="none"
+                fill-rule="evenodd"
+              >
+                <g
+                  id="ic_fluent_open_in_browser_24_regular"
+                  fill="#ffffff"
+                  fill-rule="nonzero"
+                >
+                  <path
+                    d="M17.5,12 C20.5375661,12 23,14.4624339 23,17.5 C23,20.5375661 20.5375661,23 17.5,23 C14.4624339,23 12,20.5375661 12,17.5 C12,14.4624339 14.4624339,12 17.5,12 Z M17.5112209,14.0001234 L17.427,14.005 L17.3718609,14.0166108 L17.3718609,14.0166108 L17.2886043,14.0467435 L17.2886043,14.0467435 L17.2153398,14.0888427 L17.2153398,14.0888427 L17.1588667,14.1344405 L14.6464466,16.6464466 L14.5885912,16.7156945 C14.4704696,16.8862041 14.4704696,17.1137959 14.5885912,17.2843055 L14.6464466,17.3535534 L14.7156945,17.4114088 C14.8862041,17.5295304 15.1137959,17.5295304 15.2843055,17.4114088 L15.3535534,17.3535534 L16.999,15.708 L17,21 L17.0080557,21.0898756 C17.0450996,21.2939687 17.2060313,21.4549004 17.4101244,21.4919443 L17.5,21.5 L17.5898756,21.4919443 C17.7939687,21.4549004 17.9549004,21.2939687 17.9919443,21.0898756 L18,21 L17.999,15.706 L19.6464466,17.3535534 L19.7156945,17.4114088 C19.9105626,17.5464049 20.179987,17.5271197 20.3535534,17.3535534 C20.5271197,17.179987 20.5464049,16.9105626 20.4114088,16.7156945 L20.3535534,16.6464466 L17.806,14.104 L17.7584513,14.0718913 L17.6910366,14.0377922 L17.6281458,14.0166083 L17.5739178,14.0054619 C17.5529058,14.0023382 17.531733,14.0005544 17.5112209,14.0001234 Z M6.25,3 L17.75,3 C19.4830315,3 20.8992459,4.35645477 20.9948552,6.06557609 L21,6.25 L21.0012092,12.0225923 C20.5377831,11.7257502 20.0341997,11.4861106 19.5004209,11.3136354 L19.5,8 L4.5,8 L4.5,17.75 C4.5,18.6681734 5.20711027,19.4211923 6.10647279,19.4941988 L6.25,19.5 L11.3136354,19.5004209 C11.4861106,20.0341997 11.7257502,20.5377831 12.0225923,21.0012092 L6.25,21 C4.51696854,21 3.10075407,19.6435452 3.00514479,17.9344239 L3,17.75 L3,6.25 C3,4.51696854 4.35645477,3.10075407 6.06557609,3.00514479 L6.25,3 Z"
+                    id="🎨-Color"
+                  ></path>{" "}
+                </g>{" "}
+              </g>{" "}
+            </g>
+          </svg>
+        </div>
       </div>
       <style jsx>{`
         .fav {
           color: rgb(255, 255, 255);
           fill: rgb(255, 255, 255);
         }
+
         .cta {
           cursor: pointer;
           display: flex;
           align-items: center;
           text-decoration: none;
-
           font-size: 1rem;
           background: ${type != null
             ? type == "Working"
@@ -123,8 +162,8 @@ export default function LinkItem({ type, media }) {
 
           border: none;
           margin: 1rem;
-          padding-block: 1.2rem;
-          padding-inline: 1rem;
+          padding-block: 0.8rem;
+          padding-inline: 0.5rem;
         }
 
         .cta:focus {
@@ -136,9 +175,16 @@ export default function LinkItem({ type, media }) {
           box-shadow: 5px 5px 0 #fbc638;
 
           transform: skewX(-15deg);
-          font-size: 1.2rem;
+           {
+            /* font-size: 1.2rem; */
+          }
         }
-
+        .span {
+          width: 40%;
+          overflow-x: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
         .cta .second {
           transition: 0.5s;
           margin-right: 0px;
@@ -150,7 +196,7 @@ export default function LinkItem({ type, media }) {
         }
 
         .second {
-          width: 20px;
+          width: 20%;
           margin-left: 30px;
           position: relative;
           top: 12%;
@@ -181,6 +227,7 @@ export default function LinkItem({ type, media }) {
         }
         .third {
           margin-left: auto;
+          margin-right: 0.5rem;
           width: 1.8rem;
           transform: skew(0);
           box-sizing: border-box;
@@ -212,6 +259,21 @@ export default function LinkItem({ type, media }) {
 
           padding: 0.5rem;
         }
+        .openExternal {
+          margin-right: 0.5rem;
+          margin-left: 0.5rem;
+          background-color: transparent;
+        }
+        .openExternal > svg {
+          color: white;
+          stroke: white;
+          fill: white;
+          background-color: transparent;
+        }
+        .openExternal:hover > svg {
+          background-color: rgba(0, 0, 255, 0.3);
+          fill: blue;
+        }
         @keyframes color_anim {
           0% {
             fill: white;
@@ -223,6 +285,18 @@ export default function LinkItem({ type, media }) {
 
           100% {
             fill: white;
+          }
+        }
+        @media only screen and (max-width: 800px) {
+          .cta {
+            flex-direction: column;
+          }
+          .span {
+            width: 100%;
+            margin-bottom: 1rem;
+          }
+          .third {
+            margin: auto;
           }
         }
       `}</style>

@@ -6,7 +6,7 @@ const { format } = require("url");
 const parser = require("node-html-parser");
 const fs = require("fs");
 // Packages
-const { BrowserWindow, app, ipcMain, protocol } = require("electron");
+const { BrowserWindow, app, ipcMain, Menu, shell } = require("electron");
 const isDev = require("electron-is-dev");
 const prepareNext = require("electron-next");
 
@@ -17,6 +17,99 @@ const filePath = join("temp", "data.json");
 const fileOriginalPath = join(__dirname, "../assets/data.json");
 // console.log(__static);
 // Prepare the renderer once the app is ready
+let contents;
+const template = [
+  {
+    label: "Edit",
+    submenu: [
+      {
+        role: "undo",
+      },
+      {
+        role: "redo",
+      },
+      {
+        type: "separator",
+      },
+      {
+        role: "cut",
+      },
+      {
+        role: "copy",
+      },
+      {
+        role: "paste",
+      },
+    ],
+  },
+
+  {
+    label: "View",
+    submenu: [
+      {
+        role: "reload",
+      },
+      {
+        role: "toggledevtools",
+      },
+      {
+        type: "separator",
+      },
+      {
+        role: "resetzoom",
+      },
+      {
+        role: "zoomin",
+      },
+      {
+        role: "zoomout",
+      },
+      {
+        type: "separator",
+      },
+      {
+        role: "togglefullscreen",
+      },
+    ],
+  },
+
+  {
+    role: "window",
+    submenu: [
+      {
+        role: "minimize",
+      },
+      {
+        role: "close",
+      },
+    ],
+  },
+
+  {
+    role: "help",
+    submenu: [
+      {
+        label: "Learn More",
+      },
+    ],
+  },
+  {
+    label: "Backward",
+    click: () => {
+      contents.goBack();
+    },
+  },
+  {
+    label: "Forward",
+    click: () => {
+      contents.goForward();
+      console.log("forward");
+    },
+  },
+];
+const menu = Menu.buildFromTemplate(template);
+Menu.setApplicationMenu(menu);
+
 app.on("ready", async () => {
   await prepareNext("./renderer");
   // const root = path.normalize(`${__dirname}/..`)
@@ -61,7 +154,19 @@ app.on("ready", async () => {
     });
   }
 
-  mainWindow.loadURL(url);
+  await mainWindow.loadURL(url);
+  contents = mainWindow.webContents;
+  // mainWindow.webContents.setWindowOpenHandler(({ url }) => {
+  //   return {
+  //     action: "allow",
+
+  //     overrideBrowserWindowOptions: {
+  //       titleBarStyle: "hidden",
+
+  //       webPreferences: {},
+  //     },
+  //   };
+  // });
 });
 
 // Quit the app once all windows are closed
@@ -100,8 +205,7 @@ ipcMain.on("saveData", (event, message) => {
         path: filePath,
       });
     } else {
-      console.log(message);
-      event.sender.send("saveData", {
+      +event.sender.send("saveData", {
         path: filePath,
         message: "data saved",
         data: message,
@@ -113,7 +217,6 @@ ipcMain.on("saveData", (event, message) => {
 ipcMain.on("loadData", (event, message) => {
   console.log("loadData");
   fs.readFile(filePath, "utf8", (err, data) => {
-    console.log(data);
     if (err) {
       console.log(err);
       event.sender.send("loadData", {
@@ -131,7 +234,6 @@ ipcMain.on("loadData", (event, message) => {
 });
 
 ipcMain.on("linkPath", (event, message) => {
-  console.log(message);
   const url = isDev
     ? "http://localhost:8000/" + message
     : format({
@@ -156,7 +258,7 @@ ipcMain.on("checkLinks", async (event, { links, type }) => {
       try {
         const response = await fetch(link);
         const html = await response.text();
-        console.log(response.ok);
+
         if (response.ok) {
           event.sender.send("checkLinks", { message: "Working", link: link });
         } else {
@@ -191,7 +293,9 @@ ipcMain.on("checkLinks", async (event, { links, type }) => {
     });
   }
 });
-
+ipcMain.on("openExternal", (event, message) => {
+  shell.openExternal(message);
+});
 // const scraperWindow = new BrowserWindow({
 //   // show:false,
 //   webPreferences: {

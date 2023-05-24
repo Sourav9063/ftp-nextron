@@ -26,4 +26,7 @@ contextBridge.exposeInMainWorld("electron", {
     on: (handler) => ipcRenderer.on("checkLinks", handler),
     off: (handler) => ipcRenderer.off("checkLinks", handler),
   },
+  openExternal: (payload) => {
+    return ipcRenderer.send("openExternal", payload);
+  },
 });
