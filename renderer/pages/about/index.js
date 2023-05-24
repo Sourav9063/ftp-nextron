@@ -13,9 +13,12 @@ export default function About() {
         </p>
         <Link
           onClick={(e) => {
-                      e.preventDefault();
-                      
-                  window.open("https://sourav9063.github.io/my_portfolio/","_blank","fullscreen=true, width=1600, height=900");
+            e.preventDefault();
+            window.open(
+              "https://sourav9063.github.io/my_portfolio/",
+              "_blank",
+              "fullscreen=true, width=1600, height=900"
+            );
           }}
           href="https://sourav9063.github.io/my_portfolio/"
           target="_blank"

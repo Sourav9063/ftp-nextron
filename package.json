@@ -20,8 +20,10 @@
     "asar": true,
     "files": [
       "main",
-      "renderer/out"
+      "renderer/out",
+      "assets"
     ]
+    
   },
   "devDependencies": {
     "electron": "^24.3.1",
@@ -33,6 +35,8 @@
   "dependencies": {
     "electron-is-dev": "^1.1.0",
     "electron-next": "^3.1.5",
-    "node-html-parser": "^6.1.5"
+    "node-html-parser": "^6.1.5",
+    "@formkit/auto-animate": "^1.0.0-beta.6"
   }
+  
 }
