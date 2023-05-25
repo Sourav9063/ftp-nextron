@@ -5,6 +5,19 @@ Made using ElectronJs.
 It's a UI project of [Ftp Searcher](https://github.com/Sourav9063/ftp_searcher)
 
 ## [DOWNLOAD](https://github.com/Sourav9063/ftp-nextron/releases/tag/beta)
+## Installation Guide
+### Windows
+Download `[ftp-nextron.exe]` file.
+Double click `[ftp-nextron.exe]` to install.
+
+### Linux (using snap)
+Download `[ftp-nextron.snap]` file.
+Go to `[ftp-nextron.snap]` file containing folder folder.
+```
+sudo snap install ./[ftp-nextron.snap file location] --dangerous 
+```
+### Linux (installing AppImage)
+[GUIDE](https://askubuntu.com/questions/774490/what-is-an-appimage-how-do-i-install-it)
 ## Media server is working
 ![Screenshot (178)](https://github.com/Sourav9063/ftp-nextron/assets/53114581/79b05321-179a-49f6-915a-56ac223bf56a)
 ![Screenshot (194)](https://github.com/Sourav9063/ftp-nextron/assets/53114581/92275995-3cc2-40ea-89a8-aca1a0006e0f)
