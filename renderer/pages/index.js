@@ -196,10 +196,13 @@ const Home = () => {
           <Link
             onClick={(e) => {
               e.preventDefault();
-              window.open(
-                "https://sourav9063.github.io/my_portfolio/",
-                "_blank",
-                "width=1600, height=900"
+              // window.open(
+              //   "https://sourav9063.github.io/my_portfolio/",
+              //   "_blank",
+              //   "width=1600, height=900"
+              // );
+              window.electron.openExternal(
+                "https://sourav9063.github.io/my_portfolio/"
               );
             }}
             href="https://sourav9063.github.io/my_portfolio/"

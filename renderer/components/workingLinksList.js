@@ -71,6 +71,7 @@ export default function WorkingLinksList() {
           }}
         ></AwesomeButton>
         <AwesomeButton
+          color="#072ac8"
           text={"Check Media"}
           onClick={() => {
             setWhat("Checking Media");

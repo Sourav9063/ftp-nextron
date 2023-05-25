@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function AwesomeButton({ onClick, text }) {
+export default function AwesomeButton({ onClick, text, color = "#ff4655" }) {
   return (
     <>
       <button onClick={onClick} className="button">
@@ -109,7 +109,7 @@ export default function AwesomeButton({ onClick, text }) {
           bottom: -1px;
           left: -8px;
           width: 0;
-          background-color: #ff4655;
+          background-color: ${color};
           transform: skew(-15deg);
           transition: all 0.2s ease;
         }
