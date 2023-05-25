@@ -13,7 +13,8 @@ const prepareNext = require("electron-next");
 // const filePath = join("assets", "data.json");
 // const filePath = "../temp/data.json";
 // const filePath = join("../temp/data.json");
-const filePath = join("temp", "data.json");
+const newDataTempVersion = "temp_0";
+const filePath = join(newDataTempVersion, "data.json");
 const fileOriginalPath = join(__dirname, "../assets/data.json");
 // console.log(__static);
 // Prepare the renderer once the app is ready
@@ -141,8 +142,8 @@ app.on("ready", async () => {
         protocol: "file:",
         slashes: true,
       });
-  if (!fs.existsSync("temp")) {
-    fs.mkdir("temp", (err) => {
+  if (!fs.existsSync(newDataTempVersion)) {
+    fs.mkdir(newDataTempVersion, (err) => {
       if (err) {
         console.log(err);
       } else {
@@ -153,7 +154,6 @@ app.on("ready", async () => {
       }
     });
   }
-
   await mainWindow.loadURL(url);
   contents = mainWindow.webContents;
   // mainWindow.webContents.setWindowOpenHandler(({ url }) => {
@@ -193,8 +193,8 @@ ipcMain.on("message", async (event, message) => {
 
 ipcMain.on("saveData", (event, message) => {
   console.log("saveData");
-  if (!fs.existsSync("temp")) {
-    fs.mkdir("temp", (err) => {
+  if (!fs.existsSync(newDataTempVersion)) {
+    fs.mkdir(newDataTempVersion, (err) => {
       if (err) console.log(err);
     });
   }

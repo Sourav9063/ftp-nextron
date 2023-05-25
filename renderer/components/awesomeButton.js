@@ -11,7 +11,7 @@ export default function AwesomeButton({ onClick, text }) {
       </button>
       <style jsx>{`
         .button {
-          margin: 1rem;
+          margin-inline: 1rem;
           -moz-appearance: none;
           -webkit-appearance: none;
           appearance: none;

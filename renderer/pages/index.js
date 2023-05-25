@@ -140,7 +140,7 @@ const Home = () => {
             <section>
               <header>
                 <Or>
-                  <h1>Favourite</h1>
+                  <h1>Favorites</h1>
                 </Or>
               </header>
               {(mainData?.mediaFvrt != undefined &&
@@ -152,7 +152,7 @@ const Home = () => {
                     <>
                       <div className="showAll fvrtTitle">
                         <Or>
-                          <h3>LiveTV Favourite</h3>
+                          <h3>LiveTV Favorites</h3>
                         </Or>
                       </div>
 
@@ -169,7 +169,7 @@ const Home = () => {
                     <>
                       <div className="showAll fvrtTitle">
                         <Or>
-                          <h3>Media Favourite</h3>
+                          <h3>Media Favorites</h3>
                         </Or>
                       </div>
 
@@ -185,9 +185,11 @@ const Home = () => {
                   )}
                 </div>
               ) : (
-                <Or>
-                  <div>No Favourite</div>
-                </Or>
+                <div style={{ paddingInline: "1rem", marginTop: "1rem" }}>
+                  <Or>
+                    <div>No Favorites</div>
+                  </Or>
+                </div>
               )}
             </section>
           </main>
