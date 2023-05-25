@@ -52,7 +52,11 @@ export default function WorkingLinksList() {
       <div className="list">
         <div
           className="showAll"
-          style={{ paddingInline: "1rem", marginTop: "1rem" }}
+          style={{
+            paddingInline: "1rem",
+            marginTop: "1rem",
+            marginBottom: "1rem",
+          }}
         >
           <Or>
             <h3>{what}</h3>

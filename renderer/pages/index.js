@@ -5,11 +5,10 @@ import Offline from "../components/offline";
 import { MainDataContext } from "../provider/mainDataProvider";
 import LinkItem from "../components/linkItem";
 import WorkingLinksList from "../components/workingLinksList";
-import { useAutoAnimate } from "@formkit/auto-animate/react";
+
 import Or from "../components/Or";
 
 const Home = () => {
-  const [parent] = useAutoAnimate();
   const [liveShowCount, setLiveShowCount] = useState(5);
   const [mediaShowCount, setMediaShowCount] = useState(5);
 
@@ -147,7 +146,7 @@ const Home = () => {
                 mainData.mediaFvrt?.length > 0) ||
               (mainData?.liveFvrt != undefined &&
                 mainData.liveFvrt?.length > 0) ? (
-                <div className="list" ref={parent}>
+                <div className="list">
                   {mainData.liveFvrt?.length > 0 && (
                     <>
                       <div className="showAll fvrtTitle">
