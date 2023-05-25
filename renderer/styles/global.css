@@ -230,7 +230,8 @@ textarea, input{
 }
 header {
   text-align: center;
-  margin: 2rem;
+  margin-block: 1rem;
+  margin-inline: 1rem ;
 }
 .list{
   display: flex;

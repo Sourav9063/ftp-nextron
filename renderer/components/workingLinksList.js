@@ -2,9 +2,11 @@ import React, { useContext, useEffect, useState } from "react";
 import { MainDataContext } from "../provider/mainDataProvider";
 import LinkItem from "./linkItem";
 import AwesomeButton from "./awesomeButton";
+import Or from "./Or";
 
 export default function WorkingLinksList() {
   const [mainData, setMainData] = useContext(MainDataContext);
+  const [what, setWhat] = useState("");
   const [working, setWorking] = useState([]);
   const [notSure, setNotSure] = useState([]);
   useEffect(() => {
@@ -30,8 +32,11 @@ export default function WorkingLinksList() {
   return (
     <>
       <header>
-        <h1>Working Links</h1>
+        <Or>
+          <h1>Working Links</h1>
+        </Or>
       </header>
+
       {/* <button
           onClick={() => {
             setWorking([]);
@@ -45,9 +50,30 @@ export default function WorkingLinksList() {
           Check
         </button> */}
       <div className="list">
+        <div
+          className="showAll"
+          style={{ paddingInline: "1rem", marginTop: "1rem" }}
+        >
+          <Or>
+            <h3>{what}</h3>
+          </Or>
+        </div>
         <AwesomeButton
-          text={"Refresh"}
+          text={"Check LiveTV"}
           onClick={() => {
+            setWhat("Checking LiveTV");
+            setWorking([]);
+            setNotSure([]);
+            window.electron.checkLinks.send({
+              links: mainData.live,
+              type: "fast",
+            });
+          }}
+        ></AwesomeButton>
+        <AwesomeButton
+          text={"Check Media"}
+          onClick={() => {
+            setWhat("Checking Media");
             setWorking([]);
             setNotSure([]);
             window.electron.checkLinks.send({
@@ -56,6 +82,7 @@ export default function WorkingLinksList() {
             });
           }}
         ></AwesomeButton>
+
         {/* <button
             onClick={() => {
               setWorking([]);

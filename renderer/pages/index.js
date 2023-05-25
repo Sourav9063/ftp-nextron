@@ -6,9 +6,12 @@ import { MainDataContext } from "../provider/mainDataProvider";
 import LinkItem from "../components/linkItem";
 import WorkingLinksList from "../components/workingLinksList";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import Or from "../components/Or";
 
 const Home = () => {
   const [parent] = useAutoAnimate();
+  const [liveShowCount, setLiveShowCount] = useState(5);
+  const [mediaShowCount, setMediaShowCount] = useState(5);
 
   const [input, setInput] = useState("");
   const [message, setMessage] = useState(null);
@@ -19,7 +22,7 @@ const Home = () => {
     const handleMessage = (event, message) => setMessage(message);
 
     const handleLoadData = (event, message) => {
-      // console.log(message);
+      console.log(message);
       setNotes(message?.data?.notes);
     };
     const handleSaveData = (event, message) => {
@@ -68,16 +71,67 @@ const Home = () => {
           <main>
             <section>
               <header>
-                <h1>All Media Links</h1>
+                <Or>
+                  <h1>All LiveTV Links</h1>
+                </Or>
               </header>
               <div className="list">
                 {mainData &&
-                  mainData.media?.map((media, index) => (
-                    <LinkItem
-                      key={index + "All Links"}
-                      media={media}
-                    ></LinkItem>
-                  ))}
+                  mainData.live
+                    ?.slice(0, liveShowCount)
+                    .map((live, index) => (
+                      <LinkItem
+                        key={index + "All Links"}
+                        media={live}
+                      ></LinkItem>
+                    ))}
+              </div>
+
+              <div
+                className="showAll"
+                onClick={() => {
+                  setLiveShowCount((state) => {
+                    return state == 5 ? mainData.live?.length : 5;
+                  });
+                }}
+              >
+                <Or>
+                  <p>
+                    {liveShowCount == 5 ? "Show All LiveTV" : "Hide All LiveTV"}
+                  </p>
+                </Or>
+              </div>
+
+              <header>
+                <Or>
+                  <h1>All Media Links</h1>
+                </Or>
+              </header>
+              <div className="list">
+                {mainData &&
+                  mainData.media
+                    ?.slice(0, mediaShowCount)
+                    .map((media, index) => (
+                      <LinkItem
+                        bgColor="#072ac8"
+                        key={index + "All Links"}
+                        media={media}
+                      ></LinkItem>
+                    ))}
+              </div>
+              <div
+                className="showAll"
+                onClick={() => {
+                  setMediaShowCount((state) => {
+                    return state == 5 ? mainData.media?.length : 5;
+                  });
+                }}
+              >
+                <Or>
+                  <p>
+                    {mediaShowCount == 5 ? "Show All Media" : "Hide All Media"}
+                  </p>
+                </Or>
               </div>
             </section>
             <section>
@@ -85,21 +139,55 @@ const Home = () => {
             </section>
             <section>
               <header>
-                <h1>Favourite</h1>
+                <Or>
+                  <h1>Favourite</h1>
+                </Or>
               </header>
-              {mainData?.mediaFvrt != undefined &&
-              mainData.mediaFvrt?.length > 0 ? (
+              {(mainData?.mediaFvrt != undefined &&
+                mainData.mediaFvrt?.length > 0) ||
+              (mainData?.liveFvrt != undefined &&
+                mainData.liveFvrt?.length > 0) ? (
                 <div className="list" ref={parent}>
-                  {mainData &&
-                    mainData.mediaFvrt?.map((media, index) => (
-                      <LinkItem
-                        key={index + "All Links"}
-                        media={media}
-                      ></LinkItem>
-                    ))}
+                  {mainData.liveFvrt?.length > 0 && (
+                    <>
+                      <div className="showAll fvrtTitle">
+                        <Or>
+                          <h3>LiveTV Favourite</h3>
+                        </Or>
+                      </div>
+
+                      {mainData &&
+                        mainData.liveFvrt?.map((media, index) => (
+                          <LinkItem
+                            key={index + "All Links"}
+                            media={media}
+                          ></LinkItem>
+                        ))}
+                    </>
+                  )}
+                  {mainData.mediaFvrt?.length > 0 && (
+                    <>
+                      <div className="showAll fvrtTitle">
+                        <Or>
+                          <h3>Media Favourite</h3>
+                        </Or>
+                      </div>
+
+                      {mainData &&
+                        mainData.mediaFvrt?.map((media, index) => (
+                          <LinkItem
+                            bgColor="#fb8b24"
+                            key={index + "All Links"}
+                            media={media}
+                          ></LinkItem>
+                        ))}
+                    </>
+                  )}
                 </div>
               ) : (
-                <div>No Favourite</div>
+                <Or>
+                  <div>No Favourite</div>
+                </Or>
               )}
             </section>
           </main>
@@ -115,12 +203,29 @@ const Home = () => {
             href="https://sourav9063.github.io/my_portfolio/"
             target="_blank"
           >
-            Developed by Sourav Ahmed
+            <div className="showAll">
+              <Or>Developed by Sourav Ahmed</Or>
+            </div>
           </Link>
         </>
       )}
 
       <style jsx>{`
+        .showAll {
+          cursor: pointer;
+          margin-inline: 1rem;
+          margin-bottom: 1rem;
+          padding-block: 0.5rem;
+          transition: all 0.4s ease;
+        }
+        .showAll:hover {
+          color: var(--hover-bg-color);
+          margin-inline: 0px;
+        }
+        .fvrtTitle {
+          margin-bottom: 0px;
+          margin-top: 1rem;
+        }
         main {
           display: flex;
           justify-content: space-evenly;

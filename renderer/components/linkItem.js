@@ -2,9 +2,14 @@ import Link from "next/link";
 import React, { useContext, useEffect, useState } from "react";
 import { MainDataContext } from "../provider/mainDataProvider";
 
-export default function LinkItem({ type, media }) {
+export default function LinkItem({
+  type,
+  media,
+  bgColor = "var(--primary-color)",
+}) {
   const [mainData, setMainData] = useContext(MainDataContext);
-
+  const includedInMediaFvrt = mainData.mediaFvrt?.includes(media);
+  const includedInLiveFvrt = mainData.liveFvrt?.includes(media);
   // const [isAlreadyFvrt, setIsAlreadyFvrt] = useState(
   //   mainData.mediaFvrt?.includes(media)
   // );
@@ -57,35 +62,54 @@ export default function LinkItem({ type, media }) {
 
         <div
           className={`third ${
-            mainData.mediaFvrt != undefined &&
-            mainData.mediaFvrt?.includes(media)
+            (mainData.mediaFvrt != undefined && includedInMediaFvrt) ||
+            includedInLiveFvrt
               ? "fav"
               : ""
           }`}
           onClick={(e) => {
             e.stopPropagation();
 
+            const includedInMedia = mainData.media?.includes(media);
+            const includedInLive = mainData.live?.includes(media);
             setMainData((state) => {
-              const fav =
-                state.mediaFvrt != undefined && state.mediaFvrt
-                  ? state.mediaFvrt
-                  : [];
+              if (includedInMedia) {
+                const fav =
+                  state.mediaFvrt != undefined && state.mediaFvrt
+                    ? state.mediaFvrt
+                    : [];
 
-              if (
-                mainData.mediaFvrt != undefined &&
-                !mainData.mediaFvrt?.includes(media)
-              ) {
-                fav.push(media);
+                if (mainData.mediaFvrt != undefined && !includedInMediaFvrt) {
+                  fav.push(media);
+                } else {
+                  const index = fav.indexOf(media);
+                  fav.splice(index, 1);
+                }
+
+                // const fav = [];
+
+                const newState = { ...state, mediaFvrt: fav };
+                window.electron.saveData.send(newState);
+                return newState;
               } else {
-                const index = fav.indexOf(media);
-                fav.splice(index, 1);
+                const fav =
+                  state.liveFvrt != undefined && state.liveFvrt
+                    ? state.liveFvrt
+                    : [];
+
+                if (mainData.liveFvrt != undefined && !includedInLiveFvrt) {
+                  fav.push(media);
+                } else {
+                  const index = fav.indexOf(media);
+                  fav.splice(index, 1);
+                }
+
+                // const fav = [];
+
+                const newState = { ...state, liveFvrt: fav };
+                window.electron.saveData.send(newState);
+                return newState;
               }
-
-              // const fav = [];
-
-              const newState = { ...state, mediaFvrt: fav };
-              window.electron.saveData.send(newState);
-              return newState;
             });
             // setIsAlreadyFvrt(!isAlreadyFvrt);
           }}
@@ -147,6 +171,7 @@ export default function LinkItem({ type, media }) {
         }
 
         .cta {
+          color: white;
           cursor: pointer;
           display: flex;
           align-items: center;
@@ -156,10 +181,8 @@ export default function LinkItem({ type, media }) {
             ? type == "Working"
               ? "#006b4b"
               : "#ff7b00"
-            : "var(--primary-color)"};
+            : bgColor};
           transition: 1s;
-          box-shadow: 6px 6px 0 black;
-
           border: none;
           margin: 1rem;
           padding-block: 0.8rem;
@@ -180,7 +203,9 @@ export default function LinkItem({ type, media }) {
           }
         }
         .span {
-          width: 40%;
+           {
+            /* color:white; */
+          }
           overflow-x: hidden;
           white-space: nowrap;
           text-overflow: ellipsis;
@@ -196,7 +221,6 @@ export default function LinkItem({ type, media }) {
         }
 
         .second {
-          width: 20%;
           margin-left: 30px;
           position: relative;
           top: 12%;
@@ -241,7 +265,7 @@ export default function LinkItem({ type, media }) {
           width: 1.5rem;
           padding: 0.5rem;
           margin-right: 0.3rem;
-          background-color: ${mainData.mediaFvrt?.includes(media)
+          background-color: ${includedInMediaFvrt || includedInLiveFvrt
             ? "crimson"
             : ""};
           border-radius: 1000000px;
