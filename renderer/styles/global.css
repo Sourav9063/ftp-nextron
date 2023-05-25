@@ -232,6 +232,12 @@ header {
   text-align: center;
   margin: 2rem;
 }
+.list{
+  display: flex;
+  flex-direction: column;
+  justify-self: start;
+  align-items: stretch;
+}
 
 @media (prefers-color-scheme: dark) {
   html {

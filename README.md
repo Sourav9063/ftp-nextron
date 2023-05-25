@@ -1,3 +1,39 @@
+# FTP SEARCHER
+All ftp links for media and live tv of Bangladesh. This program searches through all available links in Bangladesh and enlists all working links for your Internet service provider and allows you to open them in your browser.
+
+Made using ElectronJs.
+It's a UI project of [Ftp Searcher](https://github.com/Sourav9063/ftp_searcher)
+
+## [DOWNLOAD](https://github.com/Sourav9063/ftp-nextron/releases/tag/beta)
+## Media server is working
+![Screenshot (178)](https://github.com/Sourav9063/ftp-nextron/assets/53114581/79b05321-179a-49f6-915a-56ac223bf56a)
+![Screenshot (194)](https://github.com/Sourav9063/ftp-nextron/assets/53114581/92275995-3cc2-40ea-89a8-aca1a0006e0f)
+####Live server is coming...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Electron application example
 
 This example shows how you can use Next.js inside an Electron application to avoid a lot of configuration. It uses the Next.js router as view and server-render to speed up the initial render of the application.

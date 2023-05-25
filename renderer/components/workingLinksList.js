@@ -29,11 +29,10 @@ export default function WorkingLinksList() {
 
   return (
     <>
-      <section>
-        <header>
-          <h1>Working Links</h1>
-        </header>
-        {/* <button
+      <header>
+        <h1>Working Links</h1>
+      </header>
+      {/* <button
           onClick={() => {
             setWorking([]);
             setNotSure([]);
@@ -45,6 +44,7 @@ export default function WorkingLinksList() {
         >
           Check
         </button> */}
+      <div className="list">
         <AwesomeButton
           text={"Refresh"}
           onClick={() => {
@@ -57,17 +57,17 @@ export default function WorkingLinksList() {
           }}
         ></AwesomeButton>
         {/* <button
-          onClick={() => {
-            setWorking([]);
-            setNotSure([]);
-            window.electron.checkLinks.send({
-              links: mainData.media,
-              type: "fast",
-            });
-          }}
-        >
-          Check
-        </button> */}
+            onClick={() => {
+              setWorking([]);
+              setNotSure([]);
+              window.electron.checkLinks.send({
+                links: mainData.media,
+                type: "fast",
+              });
+            }}
+          >
+            Check
+          </button> */}
         {working.length > 0 && (
           <div className="h2">
             <h2>Working</h2>
@@ -82,7 +82,6 @@ export default function WorkingLinksList() {
               key={index + "working"}
             />
           ))}
-
         {notSure.length > 0 && (
           <div className="h2">
             <h2>{"Not Sure "}</h2>
@@ -97,7 +96,8 @@ export default function WorkingLinksList() {
               key={index + "notSure"}
             />
           ))}
-      </section>
+      </div>
+
       <style jsx>{`
         section {
           min-height: 100vh;
