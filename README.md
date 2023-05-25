@@ -18,20 +18,18 @@ sudo snap install ./[ftp-nextron.snap file location] --dangerous
 ```
 ### Linux (installing AppImage)
 [GUIDE](https://askubuntu.com/questions/774490/what-is-an-appimage-how-do-i-install-it)
-## Media server is working
-![Screenshot (178)](https://github.com/Sourav9063/ftp-nextron/assets/53114581/79b05321-179a-49f6-915a-56ac223bf56a)
-![Screenshot (194)](https://github.com/Sourav9063/ftp-nextron/assets/53114581/92275995-3cc2-40ea-89a8-aca1a0006e0f)
-####Live server is coming...
+## Media server and LiveTV server is working
+
+![Screenshot from 2023-05-25 14-43-42](https://github.com/SouravSBH/ftp-nextron/assets/124552082/13fae719-7a3d-4299-981a-e357d2b147fc)
 
 
 
+![Screenshot from 2023-05-25 14-33-45](https://github.com/SouravSBH/ftp-nextron/assets/124552082/afe41ea6-5d9e-4882-97a4-cba0871c8132)
+
+![Screenshot from 2023-05-25 14-35-30](https://github.com/SouravSBH/ftp-nextron/assets/124552082/7a457d5e-e56b-4546-a4f0-2f37a988f6cb)
 
 
-
-
-
-
-
+![Screenshot from 2023-05-25 14-34-30](https://github.com/SouravSBH/ftp-nextron/assets/124552082/f5625e48-a7e6-42c2-bd06-b98f70dd6fdd)
 
 
 
