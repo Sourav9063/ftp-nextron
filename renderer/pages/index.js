@@ -12,50 +12,8 @@ const Home = () => {
   const [liveShowCount, setLiveShowCount] = useState(5);
   const [mediaShowCount, setMediaShowCount] = useState(5);
 
-  const [input, setInput] = useState("");
-  const [message, setMessage] = useState(null);
-  const [notes, setNotes] = useState(null);
-  const [linkPath, setLinkPath] = useState(null);
   const [mainData, setMainData] = useContext(MainDataContext);
-  useEffect(() => {
-    const handleMessage = (event, message) => setMessage(message);
 
-    const handleLoadData = (event, message) => {
-      console.log(message);
-      setNotes(message?.data?.notes);
-    };
-    const handleSaveData = (event, message) => {
-      // console.log(message);
-      setNotes(message?.data?.notes);
-    };
-    const handleLinkPath = (event, message) => {
-      // console.log(message);
-      setLinkPath(message);
-    };
-
-    window.electron.message.on(handleMessage);
-    window.electron.loadData.on(handleLoadData);
-    window.electron.saveData.on(handleSaveData);
-    window.electron.linkPath.on(handleLinkPath);
-    window.electron.loadData.send();
-    window.electron.linkPath.send("about");
-
-    return () => {
-      window.electron.message.off(handleMessage);
-      window.electron.loadData.off(handleLoadData);
-      window.electron.saveData.off(handleSaveData);
-      window.electron.linkPath.off(handleLinkPath);
-    };
-  }, []);
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    window.electron.message.send({
-      input: input,
-      link: "https://sites.google.com/view/bdixftpserverlist/media-ftp-servers",
-    });
-    setMessage(null);
-  };
   const online = useOnlineStatus();
 
   return (
@@ -287,3 +245,48 @@ export default Home;
 <Link href={"/about"}>About</Link>
 <Link href={"/about/sourav"}>About</Link> */
 }
+
+// const [linkPath, setLinkPath] = useState(null);
+// const [input, setInput] = useState("");
+// const [message, setMessage] = useState(null);
+// const [notes, setNotes] = useState(null);
+
+// useEffect(() => {
+//   // const handleMessage = (event, message) => setMessage(message);
+
+//   // const handleLoadData = (event, message) => {
+//   //   // console.log(message);
+//   //   setNotes(message?.data?.notes);
+//   // };
+//   // const handleSaveData = (event, message) => {
+//   //   // console.log(message);
+//   //   setNotes(message?.data?.notes);
+//   // };
+//   // const handleLinkPath = (event, message) => {
+//   //   // console.log(message);
+//   //   setLinkPath(message);
+//   // };
+
+//   // window.electron.message.on(handleMessage);
+//   // window.electron.loadData.on(handleLoadData);
+//   // window.electron.saveData.on(handleSaveData);
+//   // window.electron.linkPath.on(handleLinkPath);
+//   // window.electron.loadData.send();
+//   // window.electron.linkPath.send("about");
+
+//   return () => {
+//     // window.electron.message.off(handleMessage);
+//     // window.electron.loadData.off(handleLoadData);
+//     // window.electron.saveData.off(handleSaveData);
+//     // window.electron.linkPath.off(handleLinkPath);
+//   };
+// }, []);
+
+// // const handleSubmit = (event) => {
+// //   event.preventDefault();
+// //   window.electron.message.send({
+// //     input: input,
+// //     link: "https://sites.google.com/view/bdixftpserverlist/media-ftp-servers",
+// //   });
+// //   setMessage(null);
+// // };
