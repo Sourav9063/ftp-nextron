@@ -96,15 +96,19 @@ const template = [
   },
   {
     label: "Backward",
+    accelerator: ",",
     click: () => {
-      contents.goBack();
+      const fw = BrowserWindow.getFocusedWindow();
+      fw.webContents.canGoBack() && fw.webContents.goBack();
     },
   },
   {
     label: "Forward",
+    accelerator: ".",
     click: () => {
-      contents.goForward();
-      console.log("forward");
+      const fw = BrowserWindow.getFocusedWindow();
+
+      fw.webContents.canGoForward() && fw.webContents.goForward();
     },
   },
 ];
@@ -155,7 +159,7 @@ app.on("ready", async () => {
     });
   }
   await mainWindow.loadURL(url);
-  contents = mainWindow.webContents;
+
   // mainWindow.webContents.setWindowOpenHandler(({ url }) => {
   //   return {
   //     action: "allow",
@@ -166,6 +170,10 @@ app.on("ready", async () => {
   //       webPreferences: {},
   //     },
   //   };
+  // });
+
+  // mainWindow.webContents.on("before-input-event", (event, input) => {
+  //   console.log(input);
   // });
 });
 
