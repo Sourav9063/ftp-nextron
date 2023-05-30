@@ -7,6 +7,7 @@
     "Hiii"
   ],
   "media": [
+    "http://103.213.238.85:8090/",
     "http://www.bnet-bd.com",
     "http://ftpbd.net",
     "http://103.58.73.9",
@@ -748,10 +749,16 @@
     "http://103.134.58.242/Data/",
     "http://ftp.tufanonline.com.bd/",
     "http://cinemacity.live/",
-    "http://cinemacity.live/hdd/"
+    "http://cinemacity.live/hdd/",
+    "https://nowhdtime.com.bd/",
+    "https://fs.plus.net.bd/",
+    "http://ctghall.com/",
+    "http://www.ctghut.com/"
+    
   ],
   "mediaFvrt": [],
   "live": [
+    "https://nowhdtime.com.bd/live-tv",
     "http://www.ctgtv.live",
     "http://ddn.oncast.me",
     "http://bdixtv.live",
