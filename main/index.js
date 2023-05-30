@@ -151,10 +151,10 @@ app.on("ready", async () => {
       if (err) {
         console.log(err);
       } else {
-        fs.copyFile(fileOriginalPath, filePath, (err) => {
-          console.log("copy..............................................");
-          console.log({ err });
-        });
+        // fs.copyFile(fileOriginalPath, filePath, (err) => {
+        //   console.log("copy..............................................");
+        //   console.log({ err });
+        // });
       }
     });
   }
@@ -224,6 +224,8 @@ ipcMain.on("saveData", (event, message) => {
 
 ipcMain.on("loadData", (event, message) => {
   console.log("loadData");
+  let dataFinal = {};
+
   fs.readFile(filePath, "utf8", (err, data) => {
     if (err) {
       console.log(err);
@@ -232,11 +234,47 @@ ipcMain.on("loadData", (event, message) => {
         path: filePath,
       });
     } else {
-      event.sender.send("loadData", {
-        message: "Success",
-        data: JSON.parse(data),
-        path: filePath,
-      });
+      const dataLocal = JSON.parse(data);
+      dataFinal = dataLocal;
+      fetch("https://sourav9063.github.io/ftp-nextron/api/db.json", {
+        method: "GET",
+        headers: { "Content-Type": "application/json" },
+      })
+        .then((response) => {
+          if (response && response.ok) {
+            return response.json();
+          } else {
+            throw new Error("Network response was not ok");
+          }
+        })
+        .then((dataCloud) => {
+          dataFinal = { ...dataCloud, ...dataFinal };
+          if (dataCloud.live.length > dataLocal.live.length) {
+            dataFinal.live = dataCloud.live;
+          }
+          if (dataCloud.media.length > dataLocal.media.length) {
+            dataFinal.media = dataCloud.media;
+          }
+          event.sender.send("loadData", {
+            message: "Success",
+            data: dataFinal,
+            path: "https://sourav9063.github.io/ftp-nextron/api/db.json",
+          });
+        })
+        .catch((e) => {
+          console.log(e);
+          event.sender.send("loadData", {
+            message: "Success.",
+            data: dataFinal,
+            path: filePath,
+          });
+        });
+
+      // event.sender.send("loadData", {
+      //   message: "Success",
+      //   data: JSON.parse(data),
+      //   path: filePath,
+      // });
     }
   });
 });
