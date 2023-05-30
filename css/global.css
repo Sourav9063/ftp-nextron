@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
+
+:root {
+  --bg: #fff;
+  --bg-op:rgba(255, 255, 255, 0.5);
+  --bg-hover: hsla(204, 88%, 53%, 0.144);
+  --bg-hover: #eff3f4;
+  --bg-hover: rgba(87, 87, 87, 0.08);
+  --text-color-primary: #000;
+  --text-color-secondery: #0f1419;
+  --text-color-tertiary: rgb(82, 99, 111);
+  /* --border-color: #cfd9de; */
+  --border-color: #eff3f4;
+  --border-color-2: #cfd9de;
+  --primary-color: #1d9bf0;
+  --disabled-color: #536471;
+  --hover-primary-trans-color: rgba(29, 155, 240, .1);
+  --hover-secondary-trans-color: rgba(15, 20, 25, .1);
+  --hover-bg-color: rgb(26, 140, 216);
+
+  --line-height: 20px;
+
+  --main-width: 600px;
+  --noti-bg-color:#ff45ae;
+  --noti-bg-color: var(--primary-color);
+
+  /* backup  */
+  --bg: #fff;
+  --bg-op:rgba(255, 255, 255, 0.5);
+  --bg-hover: hsla(204, 88%, 53%, 0.144);
+  --bg-hover: #eff3f4;
+  --bg-hover: rgba(87, 87, 87, 0.08);
+  --text-color-primary: #000;
+  --text-color-secondery: #0f1419;
+  --text-color-tertiary: rgb(82, 99, 111);
+  /* --border-color: #cfd9de; */
+  --border-color: #eff3f4;
+  --border-color-2: #cfd9de;
+  --primary-color: #1d9bf0;
+  --disabled-color: #536471;
+  --hover-primary-trans-color: rgba(29, 155, 240, .1);
+  --hover-secondary-trans-color: rgba(15, 20, 25, .1);
+  --hover-bg-color: rgb(26, 140, 216);
+
+  --line-height: 20px;
+
+  --main-width: 600px;
+
+}
+
+/* :root {
+  --bg: hsl(26, 94%, 93%);
+  --bg-hover: hsla(22, 68%, 84%, 0.25);
+  --text-color-primary: #000;
+  --text-color-secondery: #0f1419;
+  --text-color-tertiary: rgb(82, 99, 111);
+
+  --border-color: #eff3f4;
+  --border-color-2: #cfd9de;
+  --primary-color: hsl(35, 83%, 55%);
+  --disabled-color: #536471;
+  --hover-primary-trans-color: hsla(35, 83%, 55%, 0.254);
+  --hover-secondary-trans-color: hsla(32, 89%, 82%, 0.25);
+
+  --hover-bg-color: hsl(35, 100%, 45%);
+
+  --line-height: 20px;
+
+  --main-width: 600px;
+} */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg:#100031;
+    --bg-op:rgba(9, 0, 26, 0.4);
+    --bg-hover: hsla(204, 88%, 53%, 0.144);
+    --bg-hover: #eff3f4;
+    --bg-hover: rgba(133, 54, 212, 0.158);
+    --text-color-primary: #fefefd;
+    --text-color-secondery: #0f1419;
+    --text-color-tertiary: rgb(110, 121, 129);
+    /* --border-color: #cfd9de; */
+    --border-color: #2a0086;
+    --border-color-2: #6624be;
+    --primary-color: #8435cf;
+    /* --primary-color:#feac05; */
+    --disabled-color: #536471;
+    --hover-primary-trans-color: rgba(133, 54, 212, 0.2);
+    --hover-secondary-trans-color: rgba(0, 0, 0, 0.3);
+    --hover-bg-color: #bc45af;
+  --hover-bg-color: #fa46a8;
+
+  
+    --line-height: 20px;
+  
+    --main-width: 600px;
+
+    /* backup  */
+    --bg:#100031;
+    --bg-op:rgba(9, 0, 26, 0.4);
+    --bg-hover: hsla(204, 88%, 53%, 0.144);
+    --bg-hover: #eff3f4;
+    --bg-hover: rgba(133, 54, 212, 0.158);
+    --text-color-primary: #fefefd;
+    --text-color-secondery: #0f1419;
+    --text-color-tertiary: rgb(110, 121, 129);
+    /* --border-color: #cfd9de; */
+    --border-color: #2a0086;
+    --border-color-2: #6624be;
+    --primary-color: #8435cf;
+    /* --primary-color:#feac05; */
+    --disabled-color: #536471;
+    --hover-primary-trans-color: rgba(133, 54, 212, 0.2);
+    --hover-secondary-trans-color: rgba(0, 0, 0, 0.3);
+    --hover-bg-color: #fa46a8;
+  
+    --line-height: 20px;
+  
+    --main-width: 600px;
+  }
+}
+
+* {
+  font-family: 'Roboto', sans-serif;
+  box-sizing: inherit;
+  /* padding: 0;
+  margin: 0;
+  line-height: var(--line-height);
+  letter-spacing: .5px; */
+  /* border: 1px solid salmon;
+  background-color: rgba(255, 0, 0, 0.068); */
+}
+.light{
+  --bg: #fff;
+  --bg-op:rgba(255, 255, 255, 0.5);
+  --bg-hover: hsla(204, 88%, 53%, 0.144);
+  --bg-hover: #eff3f4;
+  --bg-hover: rgba(87, 87, 87, 0.08);
+  --text-color-primary: #000;
+  --text-color-secondery: #0f1419;
+  --text-color-tertiary: rgb(82, 99, 111);
+  /* --border-color: #cfd9de; */
+  --border-color: #eff3f4;
+  --border-color-2: #cfd9de;
+  --primary-color: #1d9bf0;
+  --disabled-color: #536471;
+  --hover-primary-trans-color: rgba(29, 155, 240, .1);
+  --hover-secondary-trans-color: rgba(15, 20, 25, .1);
+  --hover-bg-color: rgb(26, 140, 216);
+
+  --line-height: 20px;
+
+  --main-width: 600px;
+}
+.dark{
+  --bg:#100031;
+  --bg-op:rgba(9, 0, 26, 0.4);
+  --bg-hover: hsla(204, 88%, 53%, 0.144);
+  --bg-hover: #eff3f4;
+  --bg-hover: rgba(133, 54, 212, 0.158);
+  --text-color-primary: #fefefd;
+  --text-color-secondery: #0f1419;
+  --text-color-tertiary: rgb(110, 121, 129);
+  /* --border-color: #cfd9de; */
+  --border-color: #2a0086;
+  --border-color-2: #6624be;
+  --primary-color: #8435cf;
+  /* --primary-color:#feac05; */
+  --disabled-color: #536471;
+  --hover-primary-trans-color: rgba(133, 54, 212, 0.2);
+  --hover-secondary-trans-color: rgba(0, 0, 0, 0.3);
+  --hover-bg-color: #fa46a8;
+
+  --line-height: 20px;
+
+  --main-width: 600px;
+}
+
+img{
+    width: 100%;
+}
