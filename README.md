@@ -3,8 +3,10 @@ All ftp links for media and live tv of Bangladesh. This program searches through
 
 Made using ElectronJs.
 It's a UI project of [Ftp Searcher](https://github.com/Sourav9063/ftp_searcher)
+## [API](https://sourav9063.github.io/ftp-nextron/)
 
 ## [DOWNLOAD](https://github.com/Sourav9063/ftp-nextron/releases/tag/beta)
+
 ## Installation Guide
 ### Windows
 Download `[ftp-nextron.exe]` file.
@@ -39,12 +41,29 @@ sudo snap install ./[ftp-nextron.snap file location] --dangerous
 
 
 
+# Manually Run
+Clone the repo
+```
+  git clone https://github.com/SouravSBH/ftp-nextron.git
+```
+ 
+```
+  npm i
+```
+```
+  npm start
+```
+# Manually build
+```
+npm run dist
+```
+    
 
 
 
 
 
-
+<!-- 
 # Electron application example
 
 This example shows how you can use Next.js inside an Electron application to avoid a lot of configuration. It uses the Next.js router as view and server-render to speed up the initial render of the application.
@@ -69,4 +88,4 @@ yarn create next-app --example with-electron with-electron-app
 pnpm create next-app --example with-electron with-electron-app
 ```
 
-You can create the production app using `npm run dist`.
+You can create the production app using `npm run dist`. -->
