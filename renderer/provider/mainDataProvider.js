@@ -11,6 +11,7 @@ export default function MainDataProvider({ children }) {
   useEffect(() => {
     window.electron.loadData.send();
     const handleLoadData = (event, message) => {
+      // console.log(message);
       setMainData(message.data);
     };
     window.electron.loadData.on(handleLoadData);
