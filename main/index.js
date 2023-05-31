@@ -227,55 +227,56 @@ ipcMain.on("loadData", (event, message) => {
   let dataFinal = {};
 
   fs.readFile(filePath, "utf8", (err, data) => {
-    if (err) {
-      console.log(err);
-      event.sender.send("loadData", {
-        message: JSON.stringify(err),
-        path: filePath,
-      });
-    } else {
-      const dataLocal = JSON.parse(data);
-      dataFinal = dataLocal;
-      fetch("https://sourav9063.github.io/ftp-nextron/api/db.json", {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
+    console.log(err);
+    // if (err) {
+    //   console.log(err);
+    //   event.sender.send("loadData", {
+    //     message: JSON.stringify(err),
+    //     path: "https://sourav9063.github.io/ftp-nextron/api/db.json",
+    //   });
+    // } else {
+    const dataLocal = data ? JSON.parse(data) : {};
+    dataFinal = dataLocal;
+    fetch("https://sourav9063.github.io/ftp-nextron/api/db.json", {
+      method: "GET",
+      headers: { "Content-Type": "application/json" },
+    })
+      .then((response) => {
+        if (response && response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Network response was not ok");
+        }
       })
-        .then((response) => {
-          if (response && response.ok) {
-            return response.json();
-          } else {
-            throw new Error("Network response was not ok");
-          }
-        })
-        .then((dataCloud) => {
-          dataFinal = { ...dataCloud, ...dataFinal };
-          if (dataCloud.live.length > dataLocal.live.length) {
-            dataFinal.live = dataCloud.live;
-          }
-          if (dataCloud.media.length > dataLocal.media.length) {
-            dataFinal.media = dataCloud.media;
-          }
-          event.sender.send("loadData", {
-            message: "Success",
-            data: dataFinal,
-            path: "https://sourav9063.github.io/ftp-nextron/api/db.json",
-          });
-        })
-        .catch((e) => {
-          console.log(e);
-          event.sender.send("loadData", {
-            message: "Success.",
-            data: dataFinal,
-            path: filePath,
-          });
+      .then((dataCloud) => {
+        dataFinal = { ...dataCloud, ...dataFinal };
+        if (dataCloud.live.length > dataLocal.live.length) {
+          dataFinal.live = dataCloud.live;
+        }
+        if (dataCloud.media.length > dataLocal.media.length) {
+          dataFinal.media = dataCloud.media;
+        }
+        event.sender.send("loadData", {
+          message: "Success",
+          data: dataFinal,
+          path: "https://sourav9063.github.io/ftp-nextron/api/db.json",
         });
+      })
+      .catch((e) => {
+        console.log(e);
+        event.sender.send("loadData", {
+          message: "Success.",
+          data: dataFinal,
+          path: filePath,
+        });
+      });
 
-      // event.sender.send("loadData", {
-      //   message: "Success",
-      //   data: JSON.parse(data),
-      //   path: filePath,
-      // });
-    }
+    // event.sender.send("loadData", {
+    //   message: "Success",
+    //   data: JSON.parse(data),
+    //   path: filePath,
+    // });
+    // }
   });
 });
 

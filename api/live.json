@@ -1,5 +1,7 @@
 {
-    "live": ["http://www.ctgtv.live",
+  "live": [
+    "https://nowhdtime.com.bd/live-tv",
+    "http://www.ctgtv.live",
     "http://ddn.oncast.me",
     "http://bdixtv.live",
     "http://172.20.1.1",
@@ -88,6 +90,29 @@
     "https://hotflix.stream",
     "http://globalbanglatv.com",
     "https://www.webtvbd.com",
-    "https://crichd.tv"
-    ]
+    "https://crichd.tv",
+    "http://202.94.164.102/live.html",
+    "http://tv.pmcon.net",
+    "http://dds.oncast.me",
+    "http://tv.linktech.net.bd//",
+    "http://www.starflixbd.com",
+    "https://iptv.megaspeednet.com/ ",
+    "http://103.81.104.118",
+    "http://ihub.live/live-tv/",
+    "https://nbd-media.tk/live-tv/",
+    "https://www.biswastv.com",
+    "http://live.dhakaflix.com",
+    "http://hdtv.rangdhanu.live",
+    "http://live.flixhub.net",
+    "http://livetvbd.net",
+    "http://o.okbd.tv",
+    "http://103.166.253.222",
+    "https://live.durbinlive.com",
+    "http://103.55.144.46",
+    "http://tv.apace.com.bd",
+    "http://live.flixhub.net/",
+    "http://tv.ebox.live/",
+    "https://iptv.megaspeednet.com/",
+    "http://172.16.29.28/"
+  ]
 }

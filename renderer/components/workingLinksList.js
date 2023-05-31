@@ -38,17 +38,49 @@ export default function WorkingLinksList() {
       </header>
 
       {/* <button
-          onClick={() => {
-            setWorking([]);
-            setNotSure([]);
-            window.electron.checkLinks.send({
-              links: mainData.media,
-              type: "through",
-            });
-          }}
-        >
-          Check
-        </button> */}
+        onClick={() => {
+          console.log(mainData.media.length);
+
+          mainData.mediaCol.forEach((element) => {
+            if (
+              !mainData.media.includes(element) &&
+              !mainData.live.includes(element)
+            ) {
+              mainData.media.push(element);
+            }
+            console.log(mainData.media.length);
+          });
+          // mainData.liveTvCol.forEach((element) => {
+          //   if (!mainData.live.includes(element)) {
+          //     mainData.live.push(element);
+          //   }
+          //   console.log(mainData.live.length);
+          // });
+          mainData.mediaCol = [];
+          mainData.liveTvCol = [];
+
+          window.electron.saveData.send(mainData);
+        }}
+      >
+        Push Cols
+      </button>
+      <button
+        onClick={() => {
+          mainData.media = mainData.media.filter((item, index) => {
+            return mainData.media.indexOf(item) === index;
+          });
+          mainData.live = mainData.live.filter((item, index) => {
+            return mainData.live.indexOf(item) === index;
+          });
+          console.log(mainData.media.length);
+          console.log(mainData.live.length);
+
+          window.electron.saveData.send(mainData);
+        }}
+      >
+        RemoveDuplicates
+      </button> */}
+
       <div className="list">
         <div
           className="showAll"
