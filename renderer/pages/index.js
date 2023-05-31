@@ -70,7 +70,7 @@ const Home = () => {
                     ?.slice(0, mediaShowCount)
                     .map((media, index) => (
                       <LinkItem
-                        bgColor="#072ac8"
+                        bgColor="#355cdd"
                         key={index + "All Links"}
                         media={media}
                       ></LinkItem>
@@ -107,7 +107,7 @@ const Home = () => {
                 <div className="list">
                   {mainData.liveFvrt?.length > 0 && (
                     <>
-                      <div className="showAll fvrtTitle">
+                      <div className="fvrtTitle">
                         <Or>
                           <h3>LiveTV Favorites</h3>
                         </Or>
@@ -124,7 +124,7 @@ const Home = () => {
                   )}
                   {mainData.mediaFvrt?.length > 0 && (
                     <>
-                      <div className="showAll fvrtTitle">
+                      <div  className="fvrtTitle fvrtTitle-2">
                         <Or>
                           <h3>Media Favorites</h3>
                         </Or>
@@ -142,7 +142,7 @@ const Home = () => {
                   )}
                 </div>
               ) : (
-                <div style={{ paddingInline: "1rem", marginTop: "1rem" }}>
+                <div className="fvrtTitle fvrtTitle-2">
                   <Or>
                     <div>No Favorites</div>
                   </Or>
@@ -165,7 +165,7 @@ const Home = () => {
             href="https://sourav9063.github.io/my_portfolio/"
             target="_blank"
           >
-            <div className="showAll">
+            <div className="showAll developed">
               <Or>Developed by Sourav Ahmed</Or>
             </div>
           </Link>
@@ -176,7 +176,7 @@ const Home = () => {
         .showAll {
           cursor: pointer;
           margin-inline: 1rem;
-          margin-bottom: 1rem;
+          margin-block: 1rem;
           padding-block: 0.5rem;
           transition: all 0.4s ease;
         }
@@ -185,7 +185,12 @@ const Home = () => {
           margin-inline: 0px;
         }
         .fvrtTitle {
-          margin-bottom: 0px;
+          margin-inline: 1rem;
+          padding-block: 0.5rem;
+          transition: all 0.4s ease;
+
+        }
+        .fvrtTitle-2{
           margin-top: 1rem;
         }
         main {
@@ -201,7 +206,13 @@ const Home = () => {
           padding: 0.5rem;
         }
         section:nth-child(2) {
-          border-inline: 1px solid var(--border-color);
+          border-inline: 1px solid var(--border-color-2);
+        }
+        .developed{
+          margin-inline: 20vw
+        }
+        .developed:hover{
+          margin-inline: 1rem
         }
       `}</style>
     </>

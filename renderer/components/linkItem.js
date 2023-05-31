@@ -123,6 +123,7 @@ export default function LinkItem({
           transition: 1s;
           border: none;
           margin: 1rem;
+          margin-bottom:0px;
           padding-block: 0.8rem;
           padding-inline: 0.5rem;
           animation: reveal 0.2s ease-in-out;
@@ -133,7 +134,7 @@ export default function LinkItem({
         }
 
         .cta:hover {
-          transition: 0.5s;
+          transition: 0.2s ease-in-out;
           box-shadow: 5px 5px 0 #fbc638;
 
           transform: skewX(-15deg);
@@ -155,9 +156,6 @@ export default function LinkItem({
 
         .cta:hover .second {
           transition: 0.3s;
-           {
-            /* margin-right: 45px; */
-          }
         }
 
         .second {
