@@ -37,33 +37,44 @@ export default function WorkingLinksList() {
         </Or>
       </header>
 
-      {/* <button
+       {/* <button
         onClick={() => {
+          console.log("init length")
           console.log(mainData.media.length);
+          console.log(mainData.live.length);
+          console.log("init length")
 
           mainData.mediaCol.forEach((element) => {
             if (
-              !mainData.media.includes(element) &&
-              !mainData.live.includes(element)
+              !mainData.media.includes(element)
+              // &&
+              // !mainData.live.includes(element)
             ) {
               mainData.media.push(element);
             }
             console.log(mainData.media.length);
           });
-          // mainData.liveTvCol.forEach((element) => {
-          //   if (!mainData.live.includes(element)) {
-          //     mainData.live.push(element);
-          //   }
-          //   console.log(mainData.live.length);
-          // });
-          mainData.mediaCol = [];
-          mainData.liveTvCol = [];
+          mainData.liveTvCol.forEach((element) => {
+            if (!mainData.live.includes(element)) {
+              mainData.live.push(element);
+            }
+            console.log(mainData.live.length);
+          });
+      
 
           window.electron.saveData.send(mainData);
         }}
       >
-        Push Cols
+        PushCols
       </button>
+      <button
+        onClick={() => {
+          mainData.mediaCol = [];
+          mainData.liveTvCol = [];
+        }}
+      >
+        ClearCols
+      </button> 
       <button
         onClick={() => {
           mainData.media = mainData.media.filter((item, index) => {
@@ -75,11 +86,20 @@ export default function WorkingLinksList() {
           console.log(mainData.media.length);
           console.log(mainData.live.length);
 
+        }}
+      >
+        DltDup
+
+      </button> 
+      <button
+        onClick={() => {
+
           window.electron.saveData.send(mainData);
         }}
       >
-        RemoveDuplicates
-      </button> */}
+        SaveToTmp_0
+
+      </button>  */}
 
       <div className="list">
         <div
