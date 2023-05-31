@@ -103,12 +103,7 @@ export default function WorkingLinksList() {
 
       <div className="list">
         <div
-          className="showAll"
-          style={{
-            paddingInline: "1rem",
-            marginTop: "1rem",
-            marginBottom: "1rem",
-          }}
+          className="fvrtTitle"
         >
           <Or>
             <h3>{what}</h3>
@@ -167,7 +162,7 @@ export default function WorkingLinksList() {
             />
           ))}
         {notSure.length > 0 && (
-          <div className="h2">
+          <div className="h2 not-working">
             <h2>{"Not Sure "}</h2>
             <p> ({notSure.length})</p>
           </div>
@@ -191,7 +186,6 @@ export default function WorkingLinksList() {
           border-left: 1px solid var(--border-color);
           padding: 0.5rem;
           width: 100%;
-          transition: width 0.3s ease;
         }
         .h2 {
           display: flex;
@@ -200,6 +194,16 @@ export default function WorkingLinksList() {
         }
         .h2 > h2 {
           padding-right: 0.5rem;
+        }
+        .not-working{
+          margin-top: 1rem;
+        }
+        .fvrtTitle {
+          margin-inline: 1rem;
+          margin-bottom: 1rem;
+          padding-block: 0.5rem;
+          transition: all 0.4s ease;
+
         }
       `}</style>
     </>
