@@ -37,7 +37,7 @@ export default function WorkingLinksList() {
         </Or>
       </header>
 
-       {/* <button
+      {/* <button
         onClick={() => {
           console.log("init length")
           console.log(mainData.media.length);
@@ -102,13 +102,13 @@ export default function WorkingLinksList() {
       </button>  */}
 
       <div className="list">
-        <div
-          className="fvrtTitle"
-        >
-          <Or>
-            <h3>{what}</h3>
-          </Or>
-        </div>
+        {what && (
+          <div className="fvrtTitle">
+            <Or>
+              <h3>{what}</h3>
+            </Or>
+          </div>
+        )}
         <AwesomeButton
           text={"Check LiveTV"}
           onClick={() => {
@@ -195,7 +195,7 @@ export default function WorkingLinksList() {
         .h2 > h2 {
           padding-right: 0.5rem;
         }
-        .not-working{
+        .not-working {
           margin-top: 1rem;
         }
         .fvrtTitle {
@@ -203,7 +203,6 @@ export default function WorkingLinksList() {
           margin-bottom: 1rem;
           padding-block: 0.5rem;
           transition: all 0.4s ease;
-
         }
       `}</style>
     </>
