@@ -30,14 +30,10 @@ sudo snap install ./[ftp-nextron.snap file location] --dangerous
 [GUIDE](https://askubuntu.com/questions/774490/what-is-an-appimage-how-do-i-install-it)
 
 ## Media server and LiveTV server is working
+![Screenshot (213)](https://github.com/Sourav9063/ftp-nextron/assets/53114581/ef725b70-c01a-4142-9616-73799580af51)
+![240869271-7a457d5e-e56b-4546-a4f0-2f37a988f6cb](https://github.com/Sourav9063/ftp-nextron/assets/53114581/af94327a-ff8b-4fd0-887b-53cde1f6ca19)
 
-![Screenshot from 2023-05-25 14-43-42](https://github.com/SouravSBH/ftp-nextron/assets/124552082/13fae719-7a3d-4299-981a-e357d2b147fc)
 
-![Screenshot from 2023-05-25 14-33-45](https://github.com/SouravSBH/ftp-nextron/assets/124552082/afe41ea6-5d9e-4882-97a4-cba0871c8132)
-
-![Screenshot from 2023-05-25 14-35-30](https://github.com/SouravSBH/ftp-nextron/assets/124552082/7a457d5e-e56b-4546-a4f0-2f37a988f6cb)
-
-![Screenshot from 2023-05-25 14-34-30](https://github.com/SouravSBH/ftp-nextron/assets/124552082/f5625e48-a7e6-42c2-bd06-b98f70dd6fdd)
 
 # Manually Run
 
