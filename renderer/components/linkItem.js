@@ -120,10 +120,10 @@ export default function LinkItem({
               ? "#006b4b"
               : "#ff7b00"
             : bgColor};
-          transition: 1s;
+          transition: 0.3s ease;
           border: none;
           margin: 1rem;
-          margin-bottom:0px;
+          margin-bottom: 0px;
           padding-block: 0.8rem;
           padding-inline: 0.5rem;
           animation: reveal 0.2s ease-in-out;

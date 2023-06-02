@@ -62,26 +62,19 @@ export default function LikeButton({ media }) {
         </svg>
       </div>
       <style jsx>{`
-        .fav {
-          color: rgb(255, 255, 255);
-          fill: rgb(255, 255, 255);
-        }
+
         .third > svg {
           box-sizing: content-box;
           width: 1.5rem;
           padding: 0.5rem;
           margin-right: 0.3rem;
-          background-color: ${includedInMediaFvrt || includedInLiveFvrt
-            ? "crimson"
-            : ""};
+          background-color: ${
+            includedInMediaFvrt || includedInLiveFvrt ? "crimson" : ""
+          };
           border-radius: 1000000px;
           transition: all 0.3s ease-in-out;
         }
-
-         {
-          /* .third:hover {
-          transform: skewX(15deg);
-        } */
+        
         }
 
         .third:hover > svg {
@@ -89,6 +82,14 @@ export default function LikeButton({ media }) {
           fill: crimson;
 
           padding: 0.5rem;
+        }
+        .fav {
+          color: rgb(255, 255, 255);
+          fill: rgb(255, 255, 255);
+        }
+        .fav:hover>svg{
+          color: rgb(255, 255, 255);
+          fill: rgb(255, 255, 255);
         }
       `}</style>
     </>
