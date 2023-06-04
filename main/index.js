@@ -254,6 +254,9 @@ ipcMain.on("loadData", (event, message) => {
       })
       .then((dataCloud) => {
         dataFinal = { ...dataCloud, ...dataFinal };
+        dataFinal.version = dataCloud.version
+          ? dataCloud.version
+          : dataLocal.version;
         if (dataCloud.live.length > dataLocal.live.length) {
           dataFinal.live = dataCloud.live;
         }

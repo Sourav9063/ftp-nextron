@@ -144,7 +144,6 @@ export default function LinkItem({
         }
         .span {
           width: 50%;
-          min-width: 16vw;
           overflow-x: hidden;
           white-space: nowrap;
           text-overflow: ellipsis;
@@ -280,3 +279,7 @@ export default function LinkItem({
 // .span:hover {
 //   transform: skewX(15deg);
 // }
+
+{
+  /* min-width: 16vw; */
+}
