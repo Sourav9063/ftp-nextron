@@ -5,6 +5,10 @@
     "This is my personal project.",
     "But it is open for everyone."
   ],
+  "version": {
+    "app": "0.1.0",
+    "api": "0.1.0"
+  },
   "media": [
     "http://103.213.238.85:8090/",
     "http://www.bnet-bd.com",
