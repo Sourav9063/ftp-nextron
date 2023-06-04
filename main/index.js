@@ -87,6 +87,14 @@ const template = [
     role: "help",
     submenu: [
       {
+        label: "Get the latest version",
+        click: async () => {
+          await shell.openExternal(
+            "https://github.com/Sourav9063/ftp-nextron/releases"
+          );
+        },
+      },
+      {
         label: "Learn More",
         click: async () => {
           await shell.openExternal("https://github.com/Sourav9063/ftp-nextron");

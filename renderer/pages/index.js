@@ -25,6 +25,11 @@ const Home = () => {
         <>
           <header>
             <h1>FTP NEXTRON</h1>
+            {!mainData && (
+              <div className="showAll">
+                <Or>LOADING</Or>
+              </div>
+            )}
             {mainData &&
               mainData.version &&
               version.app != mainData.version?.app && (
