@@ -23,7 +23,12 @@ const Home = () => {
       ) : (
         <>
           <header>
-            <h1>FTP SEARCHER</h1>
+            <h1>
+              FTP Nextron
+              {mainData && mainData.version && (
+                <p>Version: {mainData.version.app}</p>
+              )}
+            </h1>
           </header>
           <main>
             <section>
@@ -124,7 +129,7 @@ const Home = () => {
                   )}
                   {mainData.mediaFvrt?.length > 0 && (
                     <>
-                      <div  className="fvrtTitle fvrtTitle-2">
+                      <div className="fvrtTitle fvrtTitle-2">
                         <Or>
                           <h3>Media Favorites</h3>
                         </Or>
@@ -188,9 +193,8 @@ const Home = () => {
           margin-inline: 1rem;
           padding-block: 0.5rem;
           transition: all 0.4s ease;
-
         }
-        .fvrtTitle-2{
+        .fvrtTitle-2 {
           margin-top: 1rem;
         }
         main {
@@ -208,11 +212,11 @@ const Home = () => {
         section:nth-child(2) {
           border-inline: 1px solid var(--border-color-2);
         }
-        .developed{
-          margin-inline: 20vw
+        .developed {
+          margin-inline: 20vw;
         }
-        .developed:hover{
-          margin-inline: 1rem
+        .developed:hover {
+          margin-inline: 1rem;
         }
       `}</style>
     </>
