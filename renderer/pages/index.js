@@ -228,7 +228,7 @@ const Home = () => {
         }
         main > * {
           max-width: 32vw;
-          min-width: 20vw;
+          min-width: 25vw;
           padding: 0.5rem;
         }
         section:nth-child(2) {

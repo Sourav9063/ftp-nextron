@@ -10,7 +10,7 @@ const prepareNext = require("electron-next");
 // const filePath = join("assets", "data.json");
 // const filePath = "../temp/data.json";
 // const filePath = join("../temp/data.json");
-const newDataTempVersion = "temp_0";
+const newDataTempVersion = join(app.getPath("userData"), "temp_0");
 const filePath = join(newDataTempVersion, "data.json");
 // const fileOriginalPath = join(__dirname, "../assets/data.json");
 // console.log(__static);
@@ -212,6 +212,7 @@ ipcMain.on("saveData", (event, message) => {
   }
   fs.writeFile(filePath, JSON.stringify(message), (err) => {
     if (err) {
+      console.log(err);
       event.sender.send("saveData", {
         message: JSON.stringify(err),
         path: filePath,
