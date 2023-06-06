@@ -2,10 +2,7 @@
 const path = require("path");
 const { join } = path;
 const { format } = require("url");
-
-const parser = require("node-html-parser");
 const fs = require("fs");
-// Packages
 const { BrowserWindow, app, ipcMain, Menu, shell } = require("electron");
 const isDev = require("electron-is-dev");
 const prepareNext = require("electron-next");
@@ -13,9 +10,9 @@ const prepareNext = require("electron-next");
 // const filePath = join("assets", "data.json");
 // const filePath = "../temp/data.json";
 // const filePath = join("../temp/data.json");
-const newDataTempVersion = "temp_0";
+const newDataTempVersion = join(app.getPath("userData"), "temp_0");
 const filePath = join(newDataTempVersion, "data.json");
-const fileOriginalPath = join(__dirname, "../assets/data.json");
+// const fileOriginalPath = join(__dirname, "../assets/data.json");
 // console.log(__static);
 // Prepare the renderer once the app is ready
 let contents;
@@ -90,9 +87,24 @@ const template = [
     role: "help",
     submenu: [
       {
+        label: "Get the latest version",
+        click: async () => {
+          await shell.openExternal(
+            "https://github.com/Sourav9063/ftp-nextron/releases"
+          );
+        },
+      },
+      {
         label: "Learn More",
+        click: async () => {
+          await shell.openExternal("https://github.com/Sourav9063/ftp-nextron");
+        },
       },
     ],
+  },
+  // full screen
+  {
+    role: "togglefullscreen",
   },
   {
     label: "Backward",
@@ -132,8 +144,8 @@ app.on("ready", async () => {
   // })
 
   const mainWindow = new BrowserWindow({
-    width: 1600,
-    height: 900,
+    width: 1400,
+    height: 800,
     webPreferences: {
       nodeIntegration: false,
       preload: join(__dirname, "preload.js"),
@@ -208,6 +220,7 @@ ipcMain.on("saveData", (event, message) => {
   }
   fs.writeFile(filePath, JSON.stringify(message), (err) => {
     if (err) {
+      console.log(err);
       event.sender.send("saveData", {
         message: JSON.stringify(err),
         path: filePath,
@@ -250,6 +263,9 @@ ipcMain.on("loadData", (event, message) => {
       })
       .then((dataCloud) => {
         dataFinal = { ...dataCloud, ...dataFinal };
+        dataFinal.version = dataCloud.version
+          ? dataCloud.version
+          : dataLocal.version;
         if (dataCloud.live.length > dataLocal.live.length) {
           dataFinal.live = dataCloud.live;
         }

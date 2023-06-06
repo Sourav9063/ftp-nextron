@@ -1,3 +1,7 @@
 https://sites.google.com/view/bdixftpserverlist/live-tv-servers
 document.querySelectorAll("a p").forEach(e=> console.log(`"${e.innerText}"`))
 
+https://sites.google.com/view/bdixftpserverlist/media-ftp-servers
+
+document.querySelectorAll("a p").forEach(e=>{ if(!e.innerText.includes("facebook")) console.log(`"${e.innerText}",`)})
+

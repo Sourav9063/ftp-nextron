@@ -1,8 +1,8 @@
 {
   "private": true,
-  "productName": "FTP Electron",
-  "name": "ftp-electron",
-  "version": "0.0.1",
+  "productName": "FTP Nextron",
+  "name": "ftp-nextron",
+  "version": "0.1.0",
   "author": "Sourav Ahmed",
   "main": "main/index.js",
   "description": "Searches for ftp server.",
@@ -20,10 +20,8 @@
     "asar": true,
     "files": [
       "main",
-      "renderer/out",
-      "assets"
+      "renderer/out"
     ]
-    
   },
   "devDependencies": {
     "electron": "^24.3.1",
@@ -34,8 +32,6 @@
   },
   "dependencies": {
     "electron-is-dev": "^1.1.0",
-    "electron-next": "^3.1.5",
-    "node-html-parser": "^6.1.5"
+    "electron-next": "^3.1.5"
   }
-  
 }

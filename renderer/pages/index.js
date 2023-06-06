@@ -7,6 +7,7 @@ import LinkItem from "../components/linkItem";
 import WorkingLinksList from "../components/workingLinksList";
 
 import Or from "../components/Or";
+import { version } from "../meta/version";
 
 const Home = () => {
   const [liveShowCount, setLiveShowCount] = useState(5);
@@ -23,7 +24,38 @@ const Home = () => {
       ) : (
         <>
           <header>
-            <h1>FTP SEARCHER</h1>
+            <h1>FTP NEXTRON</h1>
+            {!mainData && (
+              <div className="showAll">
+                <Or>LOADING</Or>
+              </div>
+            )}
+            {mainData &&
+              mainData.version &&
+              version.app != mainData.version?.app && (
+                <section className="updatesection">
+                  <div>New version is available for download.</div>
+                  <Link
+                    onClick={(e) => {
+                      e.preventDefault();
+                      // window.open(
+                      //   "https://sourav9063.github.io/my_portfolio/",
+                      //   "_blank",
+                      //   "width=1600, height=900"
+                      // );
+                      window.electron.openExternal(
+                        "https://github.com/Sourav9063/ftp-nextron/releases"
+                      );
+                    }}
+                    href="https://github.com/Sourav9063/ftp-nextron/releases"
+                    target="_blank"
+                  >
+                    <div className="showAll developed update">
+                      <Or>Please Update</Or>
+                    </div>
+                  </Link>
+                </section>
+              )}
           </header>
           <main>
             <section>
@@ -124,7 +156,7 @@ const Home = () => {
                   )}
                   {mainData.mediaFvrt?.length > 0 && (
                     <>
-                      <div  className="fvrtTitle fvrtTitle-2">
+                      <div className="fvrtTitle fvrtTitle-2">
                         <Or>
                           <h3>Media Favorites</h3>
                         </Or>
@@ -188,9 +220,8 @@ const Home = () => {
           margin-inline: 1rem;
           padding-block: 0.5rem;
           transition: all 0.4s ease;
-
         }
-        .fvrtTitle-2{
+        .fvrtTitle-2 {
           margin-top: 1rem;
         }
         main {
@@ -202,17 +233,35 @@ const Home = () => {
         }
         main > * {
           max-width: 32vw;
-          min-width: 20vw;
+          min-width: 25vw;
           padding: 0.5rem;
         }
         section:nth-child(2) {
           border-inline: 1px solid var(--border-color-2);
         }
-        .developed{
-          margin-inline: 20vw
+        .developed {
+          margin-inline: 20vw;
         }
-        .developed:hover{
-          margin-inline: 1rem
+        .developed:hover {
+          margin-inline: 1rem;
+        }
+        .update {
+          margin-top: 0px;
+          margin-bottom: 0px;
+          display: none;
+        }
+        .updatesection {
+          margin-top: 1rem;
+          border: 1px solid var(--border-color-2);
+          padding: 0.5rem;
+          opacity: 0.1;
+          transition: all 0.2s ease;
+        }
+        .updatesection:hover {
+          opacity: 1;
+        }
+        .updatesection:hover .update {
+          display: block;
         }
       `}</style>
     </>
