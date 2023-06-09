@@ -2,7 +2,7 @@
 
 :root {
   --bg: #fff;
-  --bg-op:rgba(255, 255, 255, 0.5);
+  --bg-op: rgba(255, 255, 255, 0.5);
   --bg-hover: hsla(204, 88%, 53%, 0.144);
   --bg-hover: #eff3f4;
   --bg-hover: rgba(87, 87, 87, 0.08);
@@ -21,12 +21,12 @@
   --line-height: 20px;
 
   --main-width: 600px;
-  --noti-bg-color:#ff45ae;
+  --noti-bg-color: #ff45ae;
   --noti-bg-color: var(--primary-color);
 
   /* backup  */
   --bg: #fff;
-  --bg-op:rgba(255, 255, 255, 0.5);
+  --bg-op: rgba(255, 255, 255, 0.5);
   --bg-hover: hsla(204, 88%, 53%, 0.144);
   --bg-hover: #eff3f4;
   --bg-hover: rgba(87, 87, 87, 0.08);
@@ -45,6 +45,7 @@
   --line-height: 20px;
 
   --main-width: 600px;
+  --thumb-color: #6724be7f;
 
 }
 
@@ -71,8 +72,8 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg:#100031;
-    --bg-op:rgba(9, 0, 26, 0.4);
+    --bg: #100031;
+    --bg-op: rgba(9, 0, 26, 0.4);
     --bg-hover: hsla(204, 88%, 53%, 0.144);
     --bg-hover: #eff3f4;
     --bg-hover: rgba(133, 54, 212, 0.158);
@@ -88,16 +89,16 @@
     --hover-primary-trans-color: rgba(133, 54, 212, 0.2);
     --hover-secondary-trans-color: rgba(0, 0, 0, 0.3);
     --hover-bg-color: #bc45af;
-  --hover-bg-color: #fa46a8;
+    --hover-bg-color: #fa46a8;
 
-  
+
     --line-height: 20px;
-  
+
     --main-width: 600px;
 
     /* backup  */
-    --bg:#100031;
-    --bg-op:rgba(9, 0, 26, 0.4);
+    --bg: #100031;
+    --bg-op: rgba(9, 0, 26, 0.4);
     --bg-hover: hsla(204, 88%, 53%, 0.144);
     --bg-hover: #eff3f4;
     --bg-hover: rgba(133, 54, 212, 0.158);
@@ -113,9 +114,9 @@
     --hover-primary-trans-color: rgba(133, 54, 212, 0.2);
     --hover-secondary-trans-color: rgba(0, 0, 0, 0.3);
     --hover-bg-color: #fa46a8;
-  
+
     --line-height: 20px;
-  
+
     --main-width: 600px;
   }
 }
@@ -130,9 +131,10 @@
   /* border: 1px solid salmon;
   background-color: rgba(255, 0, 0, 0.068); */
 }
-.light{
+
+.light {
   --bg: #fff;
-  --bg-op:rgba(255, 255, 255, 0.5);
+  --bg-op: rgba(255, 255, 255, 0.5);
   --bg-hover: hsla(204, 88%, 53%, 0.144);
   --bg-hover: #eff3f4;
   --bg-hover: rgba(87, 87, 87, 0.08);
@@ -152,9 +154,10 @@
 
   --main-width: 600px;
 }
-.dark{
-  --bg:#100031;
-  --bg-op:rgba(9, 0, 26, 0.4);
+
+.dark {
+  --bg: #100031;
+  --bg-op: rgba(9, 0, 26, 0.4);
   --bg-hover: hsla(204, 88%, 53%, 0.144);
   --bg-hover: #eff3f4;
   --bg-hover: rgba(133, 54, 212, 0.158);
@@ -175,6 +178,7 @@
 
   --main-width: 600px;
 }
+
 html,
 body {
   color-scheme: light dark;
@@ -184,14 +188,30 @@ body {
   color: var(--text-color-primary);
 
 
-  /* overflow-y: hidden; */
+}
+
+body::-webkit-scrollbar {
+  width: 6px;
 
 }
-svg{
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--thumb-color);
+  opacity: 0.5;
+  border-radius: 50%;
+  position: absolute;
+  padding-right: 4px;
+}
+
+
+
+svg {
   /* color: var(--text-color-primary); */
   fill: currentColor;
 }
-textarea, input{
+
+textarea,
+input {
   background-color: var(--bg-op);
   color: var(--text-color-primary);
 }
@@ -228,12 +248,14 @@ textarea, input{
 .hover-effect:hover {
   background-color: var(--hover-primary-trans-color);
 }
+
 header {
   text-align: center;
   margin-block: 1rem;
-  margin-inline: 1rem ;
+  margin-inline: 1rem;
 }
-.list{
+
+.list {
   display: flex;
   flex-direction: column;
   justify-self: start;
@@ -250,6 +272,7 @@ a {
   text-decoration: none;
   color: var(--text-color-primary);
 }
+
 /* .revealAnimation{
   animation: reveal .2s ease;
 }
