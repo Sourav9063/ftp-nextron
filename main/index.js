@@ -320,7 +320,7 @@ ipcMain.on("checkLinks", async (event, { links, type }) => {
     links.forEach(async (link) => {
       try {
         const response = await fetch(link);
-        const html = await response.text();
+        // const html = await response.text();
 
         if (response.ok) {
           event.sender.send("checkLinks", { message: "Working", link: link });
