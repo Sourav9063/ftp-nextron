@@ -45,7 +45,6 @@
   --line-height: 20px;
 
   --main-width: 600px;
-  --thumb-color: #6724be7f;
 
 }
 
@@ -118,6 +117,8 @@
     --line-height: 20px;
 
     --main-width: 600px;
+    --primary-color-op50: rgba(134, 54, 208, 0.3);
+
   }
 }
 
@@ -153,6 +154,9 @@
   --line-height: 20px;
 
   --main-width: 600px;
+
+  --primary-color-op50: rgba(29, 156, 240, 0.3);
+
 }
 
 .dark {
@@ -177,6 +181,9 @@
   --line-height: 20px;
 
   --main-width: 600px;
+
+  --primary-color-op50: rgba(133, 53, 207, 0.3);
+
 }
 
 html,
@@ -194,16 +201,6 @@ body::-webkit-scrollbar {
   width: 6px;
 
 }
-
-body::-webkit-scrollbar-thumb {
-  background-color: var(--thumb-color);
-  opacity: 0.5;
-  border-radius: 50%;
-  position: absolute;
-  padding-right: 4px;
-}
-
-
 
 svg {
   /* color: var(--text-color-primary); */
