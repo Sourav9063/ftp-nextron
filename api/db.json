@@ -13,7 +13,8 @@
     "app": {
       "all":["https://github.com/Sourav9063/ftp-nextron/releases"],
       "windows": [
-        "https://github.com/Sourav9063/ftp-nextron/releases/download/v0.1.0/FTP.Nextron.Setup.0.1.0.exe"
+        "https://github.com/Sourav9063/ftp-nextron/releases/download/v0.1.0/FTP.Nextron.Setup.0.1.0.exe",
+        "https://github.com/Sourav9063/ftp-nextron/releases/download/v0.1.0/FTP.Nextron.win.zip"
       ],
       "linux": [
         "https://github.com/Sourav9063/ftp-nextron/releases/download/v0.1.0/FTP.Nextron-0.1.0.AppImage",
