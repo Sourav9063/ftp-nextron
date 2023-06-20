@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 import React from "react";
 
@@ -26,3 +26,5 @@ export default function MainDataProvider({ children }) {
     </MainDataContext.Provider>
   );
 }
+
+export const useMainData= () =>useContext(MainDataContext);

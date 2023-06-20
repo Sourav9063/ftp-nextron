@@ -36,14 +36,13 @@ const Home = () => {
                 <section className="updatesection">
                   <div>New version is available for download.</div>
                   <Link
-                    onClick={(e) => {
-                      e.preventDefault();
-                      window.electron.openExternal(
-                        "https://github.com/Sourav9063/ftp-nextron/releases"
-                      );
-                    }}
-                    href="https://github.com/Sourav9063/ftp-nextron/releases"
-                    target="_blank"
+                    // onClick={(e) => {
+                    //   e.preventDefault();
+                    //   window.electron.openExternal(
+                    //     "/about"
+                    //   );
+                    // }}
+                    href="/download"
                   >
                     <div className="showAll developed update">
                       <Or>Please Update</Or>
