@@ -322,7 +322,7 @@ ipcMain.on("checkLinks", async (event, { links, type }) => {
         const response = await fetch(link);
         // const html = await response.text();
 
-        if (response.ok) {
+        if (response&& response.ok) {
           event.sender.send("checkLinks", { message: "Working", link: link });
         } else {
           event.sender.send("checkLinks", {
