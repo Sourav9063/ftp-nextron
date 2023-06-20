@@ -6,8 +6,21 @@
     "But it is open for everyone."
   ],
   "version": {
-    "app": "0.1.1",
+    "app": "0.1.0",
     "api": "0.1.0"
+  },
+  "download": {
+    "app": {
+      "windows": [
+        "https://github.com/Sourav9063/ftp-nextron/releases/download/v0.1.0/FTP.Nextron.Setup.0.1.0.exe"
+      ],
+      "linux": [
+        "https://github.com/Sourav9063/ftp-nextron/releases/download/v0.1.0/FTP.Nextron-0.1.0.AppImage",
+        "https://github.com/Sourav9063/ftp-nextron/releases/download/v0.1.0/ftp-nextron_0.1.0_amd64.snap"
+      ],
+      "mac": [],
+      "android": []
+    }
   },
   "media": [
     "http://103.213.238.85:8090/",
