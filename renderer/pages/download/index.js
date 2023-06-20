@@ -75,8 +75,10 @@ export default function index() {
         }
         .header {
           margin-bottom: 3rem;
+          padding-inline: 1rem;
         }
         .back {
+          margin-left: 1rem;
           cursor: pointer;
           text-decoration: underline;
         }

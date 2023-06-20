@@ -27,6 +27,7 @@ export default function DownloadSection({ type, list }) {
       </div>
       <style jsx>{`
         .header {
+          margin: 1rem;
           padding: 1rem;
           margin-bottom: 3rem;
           border: 1px solid var(--border-color);
