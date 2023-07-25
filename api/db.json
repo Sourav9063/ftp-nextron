@@ -11,7 +11,7 @@
   },
   "download": {
     "app": {
-      "all":["https://github.com/Sourav9063/ftp-nextron/releases"],
+      "all": ["https://github.com/Sourav9063/ftp-nextron/releases"],
       "windows": [
         "https://github.com/Sourav9063/ftp-nextron/releases/download/v0.1.0/FTP.Nextron.Setup.0.1.0.exe",
         "https://github.com/Sourav9063/ftp-nextron/releases/download/v0.1.0/FTP.Nextron.win.zip"
@@ -130,7 +130,6 @@
     "https://deshnetbd.com",
     "http://103.152.18.18",
     "http://103.152.18.18/Data",
-    "https://inspirebroadband.net",
     "http://ihub.live",
     "http://sg-cdn.ihub.live:8787/download/games",
     "http://www.colbd.com",
