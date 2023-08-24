@@ -1,9 +1,14 @@
 import React from "react";
 
-export default function AwesomeButton({ onClick, text, color = "#ff4655" }) {
+export default function AwesomeButton({
+  onClick,
+  text,
+  color = "#ff4655",
+  style,
+}) {
   return (
     <>
-      <button onClick={onClick} className="button">
+      <button style={style} onClick={onClick} className="button">
         <span className="button_lg">
           <span className="button_sl"></span>
           <span className="button_text">{text}</span>

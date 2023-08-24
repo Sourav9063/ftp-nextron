@@ -121,20 +121,34 @@ export default function WorkingLinksList() {
             });
           }}
         ></AwesomeButton>
-        <AwesomeButton
-          color="#072ac8"
-          text={"Check Media"}
-          onClick={() => {
-            setWhat("Checking Media");
-            setWorking([]);
-            setNotSure([]);
-            window.electron.checkLinks.send({
-              links: mainData.media,
-              type: "fast",
-            });
-          }}
-        ></AwesomeButton>
-
+        <div className="media">
+          <AwesomeButton
+            style={{ marginRight: "0rem" }}
+            color="#072ac8"
+            text={"Check Media"}
+            onClick={() => {
+              setWhat("Checking Media");
+              setWorking([]);
+              setNotSure([]);
+              window.electron.checkLinks.send({
+                links: mainData.media,
+                type: "fast",
+              });
+            }}
+          ></AwesomeButton>
+          <AwesomeButton
+            text={"Check Global Media"}
+            onClick={() => {
+              setWhat("Checking Global Media");
+              setWorking([]);
+              setNotSure([]);
+              window.electron.checkLinks.send({
+                links: mainData.globalMedia,
+                type: "fast",
+              });
+            }}
+          ></AwesomeButton>
+        </div>
         {/* <button
             onClick={() => {
               setWorking([]);
@@ -186,6 +200,11 @@ export default function WorkingLinksList() {
           border-left: 1px solid var(--border-color);
           padding: 0.5rem;
           width: 100%;
+        }
+        .media {
+          display: flex;
+          justify-content: stretch;
+          align-items: center;
         }
         .h2 {
           display: flex;
