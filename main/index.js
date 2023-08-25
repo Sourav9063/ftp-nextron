@@ -272,6 +272,9 @@ ipcMain.on("loadData", (event, message) => {
         if (dataCloud.media.length > dataLocal.media.length) {
           dataFinal.media = dataCloud.media;
         }
+        if (dataCloud.globalMedia.length > dataLocal.globalMedia.length) {
+          dataFinal.globalMedia = dataCloud.globalMedia;
+        }
         event.sender.send("loadData", {
           message: "Success",
           data: dataFinal,
@@ -322,7 +325,7 @@ ipcMain.on("checkLinks", async (event, { links, type }) => {
         const response = await fetch(link);
         // const html = await response.text();
 
-        if (response&& response.ok) {
+        if (response && response.ok) {
           event.sender.send("checkLinks", { message: "Working", link: link });
         } else {
           event.sender.send("checkLinks", {

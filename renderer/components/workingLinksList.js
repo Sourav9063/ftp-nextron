@@ -39,10 +39,10 @@ export default function WorkingLinksList() {
 
       {/* <button
         onClick={() => {
-          console.log("init length")
+          console.log("init length");
           console.log(mainData.media.length);
           console.log(mainData.live.length);
-          console.log("init length")
+          console.log("init length");
 
           mainData.mediaCol.forEach((element) => {
             if (
@@ -60,7 +60,6 @@ export default function WorkingLinksList() {
             }
             console.log(mainData.live.length);
           });
-      
 
           window.electron.saveData.send(mainData);
         }}
@@ -74,32 +73,29 @@ export default function WorkingLinksList() {
         }}
       >
         ClearCols
-      </button> 
+      </button>
       <button
         onClick={() => {
-          mainData.media = mainData.media.filter((item, index) => {
-            return mainData.media.indexOf(item) === index;
+          console.log(mainData.globalMedia.length);
+          mainData.globalMedia = mainData.globalMedia.filter((item, index) => {
+            return mainData.globalMedia.indexOf(item) === index;
           });
-          mainData.live = mainData.live.filter((item, index) => {
-            return mainData.live.indexOf(item) === index;
-          });
-          console.log(mainData.media.length);
+          // mainData.live = mainData.live.filter((item, index) => {
+          //   return mainData.live.indexOf(item) === index;
+          // });
+          console.log(mainData.globalMedia.length);
           console.log(mainData.live.length);
-
         }}
       >
         DltDup
-
-      </button> 
+      </button>
       <button
         onClick={() => {
-
           window.electron.saveData.send(mainData);
         }}
       >
         SaveToTmp_0
-
-      </button>  */}
+      </button> */}
 
       <div className="list">
         {what && (
