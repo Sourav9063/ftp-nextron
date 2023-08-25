@@ -5,3 +5,5 @@ https://sites.google.com/view/bdixftpserverlist/media-ftp-servers
 
 document.querySelectorAll("a p").forEach(e=>{ if(!e.innerText.includes("facebook")) console.log(`"${e.innerText}",`)})
 
+https://www.sitelike.org/
+const arr=[];document.querySelectorAll("img+a").forEach(e=>{ if(!e.innerText.includes("facebook")) arr.push(`"https://${e.innerText}"`)});console.log(arr.join(","))
