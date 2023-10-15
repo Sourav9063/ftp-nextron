@@ -7,3 +7,20 @@ document.querySelectorAll("a p").forEach(e=>{ if(!e.innerText.includes("facebook
 
 https://www.sitelike.org/
 const arr=[];document.querySelectorAll("img+a").forEach(e=>{ if(!e.innerText.includes("facebook")) arr.push(`"https://${e.innerText}"`)});console.log(arr.join(","))
+prevList=[... new Set(prevList)]
+let str=""
+for (let link of arr) {
+    let found=false;
+    for (let links of prevList) {
+        if(links.includes(link.split("//")[1])){
+            found=true;
+            break
+        }
+        
+    }
+    if(!found){
+        prevList.push(link.replaceAll('"',''))
+        
+    }
+}
+prevList
