@@ -49,4 +49,5 @@ for (let link of arr) {
 }
 console.log(prevList.length)
 prevList=[... new Set(prevList)]
+prevList=prevList.sort()
 prevList
