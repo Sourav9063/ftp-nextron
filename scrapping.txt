@@ -25,11 +25,40 @@ for (let link of arr) {
 }
 prevList
 
+--------------------------------------------------------------------------------
 
 const arr=[];document.querySelectorAll("img+a").forEach(e=>{ if(!e.innerText.includes("facebook")) arr.push(`https://${e.innerText}`)});console.log(arr.join(","))
 res= await fetch("https://sourav9063.github.io/ftp-nextron/api/db.json", )
 result=await res.json()
 prevList= result.globalMedia
+console.log(prevList.length)
+prevList=[... new Set(prevList)]
+for (let link of arr) {
+    let found=false;
+    const mainLink=link.split("//")[1]
+    for (let links of prevList) {
+        if(links.includes(mainLink)){
+            found=true;
+            break
+        }
+        
+    }
+    if(!found){
+        console.log(link)
+        prevList.push(link.replaceAll('"',''))
+        
+    }
+}
+console.log(prevList.length)
+prevList=[... new Set(prevList)]
+prevList=prevList.sort()
+prevList
+---------------------------------------------------------------------------------------------
+
+const arr=[];document.querySelectorAll("img+a").forEach(e=>{ if(!e.innerText.includes("facebook")) arr.push(`https://${e.innerText}`)});console.log(arr.join(","))
+
+prevList= []
+console.log(prevList.length)
 prevList=[... new Set(prevList)]
 for (let link of arr) {
     let found=false;
