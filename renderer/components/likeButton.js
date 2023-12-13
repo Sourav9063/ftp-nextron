@@ -3,8 +3,8 @@ import { MainDataContext } from "../provider/mainDataProvider";
 
 export default function LikeButton({ media }) {
   const [mainData, setMainData] = useContext(MainDataContext);
-  const includedInMediaFvrt = mainData.mediaFvrt?.includes(media);
-  const includedInLiveFvrt = mainData.liveFvrt?.includes(media);
+  const includedInMediaFvrt = mainData?.mediaFvrt?.includes(media);
+  const includedInLiveFvrt = mainData?.liveFvrt?.includes(media);
   return (
     <>
       <div
