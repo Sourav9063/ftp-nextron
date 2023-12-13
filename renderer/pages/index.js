@@ -8,6 +8,7 @@ import WorkingLinksList from "../components/workingLinksList";
 
 import Or from "../components/Or";
 import { version } from "../meta/version";
+import { incrementListState } from "../helper/func";
 
 const Home = () => {
   const [liveShowCount, setLiveShowCount] = useState(5);
@@ -137,8 +138,9 @@ const Home = () => {
               <div
                 className="showAll"
                 onClick={() => {
-                  setGlobalMediaShowCount((state) => {
-                    return state == 5 ? mainData.media?.length : 5;
+                  incrementListState({
+                    listState: mainData?.globalMedia?.length,
+                    setListState: setGlobalMediaShowCount,
                   });
                 }}
               >

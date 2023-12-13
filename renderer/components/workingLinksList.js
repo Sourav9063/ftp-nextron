@@ -3,12 +3,15 @@ import { MainDataContext } from "../provider/mainDataProvider";
 import LinkItem from "./linkItem";
 import AwesomeButton from "./awesomeButton";
 import Or from "./Or";
+import { incrementListState } from "../helper/func";
 
 export default function WorkingLinksList() {
   const [mainData, setMainData] = useContext(MainDataContext);
   const [what, setWhat] = useState("");
   const [working, setWorking] = useState([]);
   const [notSure, setNotSure] = useState([]);
+  const [notSureShowCount, setNotSureShowCount] = useState(10);
+  const [workingShowCount, setWorkingShowCount] = useState(100);
   useEffect(() => {
     const handleCheckData = (event, message) => {
       if (message.message == "Working") {
@@ -164,13 +167,30 @@ export default function WorkingLinksList() {
           </div>
         )}
         {working &&
-          working.map((link, index) => (
-            <LinkItem
-              type={link.message}
-              media={link.link}
-              key={index + "working"}
-            />
-          ))}
+          working
+            .slice(0, workingShowCount)
+            .map((link, index) => (
+              <LinkItem
+                type={link.message}
+                media={link.link}
+                key={index + "working"}
+              />
+            ))}
+        {working?.length > 0 && workingShowCount < working?.length && (
+          <div
+            className="showAll"
+            onClick={() => {
+              incrementListState({
+                maxLength: working.length,
+                setListState: setWorkingShowCount,
+              });
+            }}
+          >
+            <Or>
+              <p>{"Show More"}</p>
+            </Or>
+          </div>
+        )}
         {notSure.length > 0 && (
           <div className="h2 not-working">
             <h2>{"Not Sure "}</h2>
@@ -178,16 +198,44 @@ export default function WorkingLinksList() {
           </div>
         )}
         {notSure &&
-          notSure.map((link, index) => (
-            <LinkItem
-              type={link.message}
-              media={link.link}
-              key={index + "notSure"}
-            />
-          ))}
+          notSure
+            .slice(0, notSureShowCount)
+            .map((link, index) => (
+              <LinkItem
+                type={link.message}
+                media={link.link}
+                key={index + "notSure"}
+              />
+            ))}
+        {notSure?.length > 0 && notSureShowCount < notSure?.length && (
+          <div
+            className="showAll"
+            onClick={() => {
+              incrementListState({
+                maxLength: notSure.length,
+                setListState: setNotSureShowCount,
+              });
+            }}
+          >
+            <Or>
+              <p>{"Show More"}</p>
+            </Or>
+          </div>
+        )}
       </div>
 
       <style jsx>{`
+        .showAll {
+          cursor: pointer;
+          margin-inline: 1rem;
+          margin-block: 1rem;
+          padding-block: 0.5rem;
+          transition: all 0.4s ease;
+        }
+        .showAll:hover {
+          color: var(--hover-bg-color);
+          margin-inline: 0px;
+        }
         section {
           min-height: 100vh;
           display: grid;
