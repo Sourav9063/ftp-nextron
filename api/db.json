@@ -6,8 +6,8 @@
     "But it is open for everyone."
   ],
   "version": {
-    "app": "0.1.1",
-    "api": "0.1.1"
+    "app": "0.1.2",
+    "api": "0.1.2"
   },
   "download": {
     "app": {
@@ -24,7 +24,7 @@
       "android": []
     }
   },
-  "globalMedia":[
+  "globalMedia": [
     "http://app.moviestream.online",
     "https://bflix.sx/",
     "https://arc018.to/",
