@@ -266,13 +266,13 @@ ipcMain.on("loadData", (event, message) => {
         dataFinal.version = dataCloud.version
           ? dataCloud.version
           : dataLocal.version;
-        if (dataCloud.live.length > dataLocal.live.length) {
+        if (dataCloud.live.length != dataLocal.live.length) {
           dataFinal.live = dataCloud.live;
         }
-        if (dataCloud.media.length > dataLocal.media.length) {
+        if (dataCloud.media.length != dataLocal.media.length) {
           dataFinal.media = dataCloud.media;
         }
-        if (dataCloud.globalMedia.length > dataLocal.globalMedia.length) {
+        if (dataCloud.globalMedia.length != dataLocal.globalMedia.length) {
           dataFinal.globalMedia = dataCloud.globalMedia;
         }
         event.sender.send("loadData", {
@@ -322,9 +322,8 @@ ipcMain.on("checkLinks", async (event, { links, type }) => {
   if (type == "fast") {
     links.forEach(async (link) => {
       try {
-        const response = await fetch(link);
+        const response = await fetch(link, { mode: "no-cors" });
         // const html = await response.text();
-
         if (response && response.ok) {
           event.sender.send("checkLinks", { message: "Working", link: link });
         } else {
@@ -334,7 +333,6 @@ ipcMain.on("checkLinks", async (event, { links, type }) => {
           });
         }
       } catch (err) {
-        // console.log(err);
         event.sender.send("checkLinks", { message: "Not Sure", link: link });
       }
     });
