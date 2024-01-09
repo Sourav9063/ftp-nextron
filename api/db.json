@@ -25,6 +25,7 @@
     }
   },
   "preferredGlobalMediaLinkKey": [
+    "syncplay.vercel.app/free-stream",
     "1hd",
     "bingewatch",
     "flixhq",
@@ -46,6 +47,7 @@
     "9anime"
   ],
   "globalMedia": [
+    "https://syncplay.vercel.app/free-stream",
     "https://www1.fbox.to",
     "https://www4.fbox.to",
     "https://www3.fbox.to",
